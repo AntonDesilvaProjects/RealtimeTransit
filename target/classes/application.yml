@@ -1,0 +1,7 @@
+mta:
+  api:
+    feed-base-url: 'http://datamine.mta.info/mta_esi.php'
+    stations-url: 'http://web.mta.info/developers/data/nyct/subway/Stations.csv'
+    key: '4d4a960c9b1c61ad1ed62b5fdfaf7018'
+server:
+  port: 3000
