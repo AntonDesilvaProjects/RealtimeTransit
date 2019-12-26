@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cf8edcb-2cae-4b3e-8339-5a8737b2abd8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/transit/service/impl/MTASubwayServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/transit/service/impl/MTASubwayServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/RealTimeTransit.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/rest/MTASubwayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/rest/MTASubwayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/service/MTASubwayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/service/MTASubwayService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/transit/TransitConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/TransitConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/dao/impl/MTASubwayGTFSDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/dao/impl/MTASubwayGTFSDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/SubwayTripListParams.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/SubwayTripListParams.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Trip$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Trip$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Trip$Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Trip$Direction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Trip$builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Trip$builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Trip.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Trip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/TripUpdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/TripUpdate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/service/impl/MTASubwayServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/service/impl/MTASubwayServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/rest/MTASubwayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/rest/MTASubwayController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/transit/service/impl/MTASubwayServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/transit/service/impl/MTASubwayServiceImplTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +68,7 @@
       <recent name="com.transit.domain.mta" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MTASubwayServiceImplTest.listTrips">
+  <component name="RunManager" selected="Application.Application">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -197,8 +190,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MTASubwayServiceImplTest.listTrips" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="JUnit.MTASubwayServiceImplTest.listTrips" />
         <item itemvalue="JUnit.MTASubwayServiceImplTest" />
         <item itemvalue="Application.Trip" />
         <item itemvalue="Application.Runner2" />
@@ -231,38 +224,38 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="272" key="GridCell.Tab.0.bottom" timestamp="1577383138877">
+    <state width="1398" height="242" key="GridCell.Tab.0.bottom" timestamp="1577388219629">
       <screen x="0" y="22" width="1440" height="878" />
     </state>
-    <state width="1398" height="272" key="GridCell.Tab.0.bottom/0.22.1440.878@0.22.1440.878" timestamp="1577383138877" />
-    <state width="1398" height="272" key="GridCell.Tab.0.center" timestamp="1577383138875">
+    <state width="1398" height="242" key="GridCell.Tab.0.bottom/0.22.1440.878@0.22.1440.878" timestamp="1577388219629" />
+    <state width="1398" height="242" key="GridCell.Tab.0.center" timestamp="1577388219628">
       <screen x="0" y="22" width="1440" height="878" />
     </state>
-    <state width="1398" height="272" key="GridCell.Tab.0.center/0.22.1440.878@0.22.1440.878" timestamp="1577383138875" />
-    <state width="1398" height="272" key="GridCell.Tab.0.left" timestamp="1577383138874">
+    <state width="1398" height="242" key="GridCell.Tab.0.center/0.22.1440.878@0.22.1440.878" timestamp="1577388219628" />
+    <state width="1398" height="242" key="GridCell.Tab.0.left" timestamp="1577388219627">
       <screen x="0" y="22" width="1440" height="878" />
     </state>
-    <state width="1398" height="272" key="GridCell.Tab.0.left/0.22.1440.878@0.22.1440.878" timestamp="1577383138874" />
-    <state width="1398" height="272" key="GridCell.Tab.0.right" timestamp="1577383138876">
+    <state width="1398" height="242" key="GridCell.Tab.0.left/0.22.1440.878@0.22.1440.878" timestamp="1577388219627" />
+    <state width="1398" height="242" key="GridCell.Tab.0.right" timestamp="1577388219628">
       <screen x="0" y="22" width="1440" height="878" />
     </state>
-    <state width="1398" height="272" key="GridCell.Tab.0.right/0.22.1440.878@0.22.1440.878" timestamp="1577383138876" />
-    <state width="1398" height="272" key="GridCell.Tab.1.bottom" timestamp="1577383138881">
+    <state width="1398" height="242" key="GridCell.Tab.0.right/0.22.1440.878@0.22.1440.878" timestamp="1577388219628" />
+    <state width="1398" height="272" key="GridCell.Tab.1.bottom" timestamp="1577388002839">
       <screen x="0" y="22" width="1440" height="878" />
     </state>
-    <state width="1398" height="272" key="GridCell.Tab.1.bottom/0.22.1440.878@0.22.1440.878" timestamp="1577383138881" />
-    <state width="1398" height="272" key="GridCell.Tab.1.center" timestamp="1577383138879">
+    <state width="1398" height="272" key="GridCell.Tab.1.bottom/0.22.1440.878@0.22.1440.878" timestamp="1577388002839" />
+    <state width="1398" height="272" key="GridCell.Tab.1.center" timestamp="1577388002837">
       <screen x="0" y="22" width="1440" height="878" />
     </state>
-    <state width="1398" height="272" key="GridCell.Tab.1.center/0.22.1440.878@0.22.1440.878" timestamp="1577383138879" />
-    <state width="1398" height="272" key="GridCell.Tab.1.left" timestamp="1577383138877">
+    <state width="1398" height="272" key="GridCell.Tab.1.center/0.22.1440.878@0.22.1440.878" timestamp="1577388002837" />
+    <state width="1398" height="272" key="GridCell.Tab.1.left" timestamp="1577388002836">
       <screen x="0" y="22" width="1440" height="878" />
     </state>
-    <state width="1398" height="272" key="GridCell.Tab.1.left/0.22.1440.878@0.22.1440.878" timestamp="1577383138877" />
-    <state width="1398" height="272" key="GridCell.Tab.1.right" timestamp="1577383138880">
+    <state width="1398" height="272" key="GridCell.Tab.1.left/0.22.1440.878@0.22.1440.878" timestamp="1577388002836" />
+    <state width="1398" height="272" key="GridCell.Tab.1.right" timestamp="1577388002838">
       <screen x="0" y="22" width="1440" height="878" />
     </state>
-    <state width="1398" height="272" key="GridCell.Tab.1.right/0.22.1440.878@0.22.1440.878" timestamp="1577383138880" />
+    <state width="1398" height="272" key="GridCell.Tab.1.right/0.22.1440.878@0.22.1440.878" timestamp="1577388002838" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -273,14 +266,9 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java</url>
-          <line>139</line>
-          <option name="timeStamp" value="24" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/transit/rest/MTASubwayController.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

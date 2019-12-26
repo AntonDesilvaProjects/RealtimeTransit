@@ -31,4 +31,7 @@ public class TransitConstants {
                 .collect(Collectors.toMap(AbstractMap.SimpleEntry::getKey, AbstractMap.SimpleEntry::getValue));
         ROUTE_FEED_MAP = Collections.unmodifiableMap(tempLineToFeed);
     }
+
+    public static final String LONG_MIN_VALUE_STRING = "" + Long.MIN_VALUE;
+    public static final String DOUBLE_MIN_VALUE_STRING = "" + Double.MIN_VALUE;
 }
