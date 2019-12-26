@@ -1,8 +1,7 @@
 package com.transit.domain.mta;
 
 public class TripUpdate {
-    private String stopId;
-    private String stopName;
+    private SubwayStation subwayStation;
     private long arrivalTime;
     private long departureTime;
     private String scheduledTrack;
@@ -10,21 +9,14 @@ public class TripUpdate {
     private int arrivingInMinutes;
 
     public static class builder {
-        private String stopId;
-        private String stopName;
+        private SubwayStation subwayStation;
         private long arrivalTime;
         private long departureTime;
         private String scheduledTrack;
         private String actualTrack;
 
-        public builder() {
-        }
-        public builder withStopId(String stopId) {
-            this.stopId = stopId;
-            return this;
-        }
-        public builder withStopName(String stopName) {
-            this.stopName = stopName;
+        public builder forSubwayStation(SubwayStation subwayStation) {
+            this.subwayStation = subwayStation;
             return this;
         }
         public builder arrivingOn(long arrivingOn) {
@@ -45,31 +37,22 @@ public class TripUpdate {
         }
         public TripUpdate build() {
            TripUpdate tripUpdate = new TripUpdate();
-           tripUpdate.setStopId(this.stopId);
-           tripUpdate.setStopName(this.stopName);
+           tripUpdate.setSubwayStation(this.subwayStation);
            tripUpdate.setArrivalTime(this.arrivalTime);
            tripUpdate.setDepartureTime(this.departureTime);
            tripUpdate.setScheduledTrack(this.scheduledTrack);
+           tripUpdate.setActualTrack(this.actualTrack);
            tripUpdate.setDepartureTime(this.departureTime);
            return tripUpdate;
         }
     }
 
-    public String getStopId() {
-        return stopId;
+    public SubwayStation getSubwayStation() {
+        return subwayStation;
     }
 
-    public TripUpdate setStopId(String stopId) {
-        this.stopId = stopId;
-        return this;
-    }
-
-    public String getStopName() {
-        return stopName;
-    }
-
-    public TripUpdate setStopName(String stopName) {
-        this.stopName = stopName;
+    public TripUpdate setSubwayStation(SubwayStation subwayStation) {
+        this.subwayStation = subwayStation;
         return this;
     }
 

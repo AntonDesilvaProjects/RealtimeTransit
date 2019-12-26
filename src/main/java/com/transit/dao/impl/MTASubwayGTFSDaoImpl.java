@@ -3,18 +3,18 @@ package com.transit.dao.impl;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.google.protobuf.Descriptors;
 import com.google.protobuf.ExtensionRegistry;
 import com.google.transit.realtime.GtfsRealtime;
 import com.google.transit.realtime.GtfsRealtimeNYCT;
 import com.transit.TransitConstants;
-import com.transit.dao.MTASubwayGTFSDao;
+import com.transit.dao.MTASubwayDao;
 import com.transit.domain.mta.Feed;
 import com.transit.domain.mta.SubwayStation;
 import com.transit.domain.mta.Trip;
 import com.transit.domain.mta.TripUpdate;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -26,11 +26,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Component
-public class MTASubwayGTFSDaoImpl implements MTASubwayGTFSDao {
+public class MTASubwayGTFSDaoImpl implements MTASubwayDao {
 
     @Value("${mta.api.feed-base-url}")
     private String MTA_SUBWAY_FEED_BASE_URL;
@@ -41,38 +46,42 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayGTFSDao {
     @Value("${mta.api.key}")
     private String MTA_SUBWAY_FEED_API_KEY;
 
+    private final String STATION_ID = "Station ID";
+    private final String GTFS_STOP_ID = "GTFS Stop ID";
+    private final String STOP_NAME = "Stop Name";
+    private final String BOROUGH = "Borough";
+    private final String DAYTIME_ROUTES = "Daytime Routes";
+    private final String GTFS_LATITUDE = "GTFS Latitude";
+    private final String GTFS_LONGITUDE = "GTFS Longitude";
+
+    private final String SUBWAY_STATION_KEY = "station_key";
+
     private ExtensionRegistry gtfsExtensionRegistry;
-    private LoadingCache<Integer, SubwayStation> subwayStationCache;
+    private LoadingCache<String, Map<String, SubwayStation>> subwayStationCache;
 
     @PostConstruct
     public void init() {
-//        subwayStationCache = CacheBuilder.newBuilder()
-//                .expireAfterAccess(1, TimeUnit.DAYS)
-//                .build(new CacheLoader<Integer, SubwayStation>() {
-//                        @Override
-//                        public SubwayStation load(Integer integer) throws Exception {
-//                            return fetchSubwayStations().get(0);
-//                        }
-//                    });
-//        List<Trip> feeds = getTripsForFeed(26);
-
-        try {
-            fetchSubwayStations();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        subwayStationCache = CacheBuilder.newBuilder()
+                .expireAfterWrite(1, TimeUnit.DAYS)
+                .build(new CacheLoader<String, Map<String, SubwayStation>>() {
+                        @Override
+                        public Map<String, SubwayStation> load(String key) throws Exception {
+                            return fetchSubwayStations().stream().collect(Collectors.toMap(SubwayStation::getGtfsStopId, Function.identity()));
+                        }
+                    });
     }
 
     @Override
     public List<Feed> getAvailableFeeds() {
         //there is no dynamic way to pull this data so return a pre-built list
-        return (List<Feed>) TransitConstants.FEED_ID_MAP.values();
+        return new ArrayList<>(TransitConstants.FEED_ID_MAP.values());
     }
 
     @Override
     public List<Trip> getTripsForFeed(int feedId) {
         List<Trip> trips = new ArrayList<>();
         try (InputStream urlStream = buildFeedUrl(feedId).openStream()) {
+            Map<String, SubwayStation> stationIdMap = subwayStationCache.get(SUBWAY_STATION_KEY);
             GtfsRealtime.FeedMessage feedMessage = GtfsRealtime.FeedMessage.parseFrom(urlStream, getGtfsExtensionRegistry());
             for (GtfsRealtime.FeedEntity entity : feedMessage.getEntityList()) {
                 if (entity.hasTripUpdate()) {
@@ -80,26 +89,40 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayGTFSDao {
                     List<GtfsRealtime.TripUpdate.StopTimeUpdate> updateList = gtfsTripUpdate.getStopTimeUpdateList();
                     List<TripUpdate> tripUpdates = updateList.stream().map(u ->
                             new TripUpdate.builder()
-                                .withStopId(u.getStopId())
+                                .forSubwayStation(stationIdMap.get(u.getStopId().substring(0, u.getStopId().length() - 1)))
                                 .arrivingOn(u.getArrival().getTime())
                                 .departingOn(u.getDeparture().getTime()).build()
                     ).collect(Collectors.toList());
 
                     GtfsRealtime.TripDescriptor tripDescriptor = gtfsTripUpdate.getTrip();
+                    //get the NYCT trip descriptor get additional fields from MTA
+                    GtfsRealtimeNYCT.NyctTripDescriptor nyctTripDescriptor = (GtfsRealtimeNYCT.NyctTripDescriptor) tripDescriptor.getField(GtfsRealtimeNYCT.nyctTripDescriptor.getDescriptor());
                     Trip trip = new Trip.builder(tripDescriptor.getTripId())
                             .withRouteId(tripDescriptor.getRouteId())
+                            .withTrainId(nyctTripDescriptor.getTrainId())
+                            .headed(Trip.Direction.fromMTADirection(nyctTripDescriptor.getDirection()))
                             .startingAt(tripDescriptor.getStartTime())
                             .startingOn(tripDescriptor.getStartDate())
-                            .withTrainId(tripDescriptor.getTripId())
                             .havingTripUpdates(tripUpdates)
                             .build();
                     trips.add(trip);
                 }
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return trips;
+    }
+
+    @Override
+    public List<SubwayStation> getSubwayStations() {
+        List<SubwayStation> subwayStations = null;
+        try {
+            subwayStations = new ArrayList<>(subwayStationCache.get(SUBWAY_STATION_KEY).values());
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return subwayStations;
     }
 
     private ExtensionRegistry getGtfsExtensionRegistry() {
@@ -121,9 +144,17 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayGTFSDao {
     }
 
     private List<SubwayStation> fetchSubwayStations() throws IOException {
-        List<SubwayStation> subwayStations = null;
-        List<CSVRecord> csvRecords = CSVParser.parse(new URL(MTA_SUBWAY_STATIONS_URL), Charset.defaultCharset(),  CSVFormat.EXCEL.withFirstRecordAsHeader()).getRecords();
-        System.out.println(csvRecords.get(10).get("GTFS Stop ID"));
-        return subwayStations;
+        return CSVParser.parse(new URL(MTA_SUBWAY_STATIONS_URL), Charset.defaultCharset(),  CSVFormat.EXCEL.withFirstRecordAsHeader())
+                .getRecords()
+                .stream()
+                .map(r -> new SubwayStation(
+                    r.get(STATION_ID),
+                    r.get(GTFS_STOP_ID),
+                    r.get(STOP_NAME),
+                    r.get(BOROUGH),
+                    Arrays.stream(r.get(DAYTIME_ROUTES).split(" ")).collect(Collectors.toList()),
+                    Double.parseDouble(r.get(GTFS_LATITUDE)),
+                    Double.parseDouble(r.get(GTFS_LONGITUDE))
+                )).collect(Collectors.toList());
     }
 }

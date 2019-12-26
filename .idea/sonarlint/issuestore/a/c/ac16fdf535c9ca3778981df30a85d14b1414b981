@@ -1,0 +1,23 @@
+
+squid:S001169"]Rename this field "SUBWAY_STATION_KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–İó°şÿÿÿÿ8·œ–Ïò-
+?squid:S11704"!Make this final field static too.(°•˜Ÿ8©ğÎò-
+Dsquid:S11705"!Make this final field static too.(·‰µšùÿÿÿÿ8©ğÎò-
+?squid:S11706"!Make this final field static too.(£«×Â8Üó’Îò-
+}squid:S001165"YRename this field "DAYTIME_ROUTES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·‰µšùÿÿÿÿ8š™‘Îò-
+zsquid:S00116,"bRename this field "MTA_SUBWAY_STATIONS_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›‹èÛ
+wsquid:S001166"XRename this field "GTFS_LATITUDE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£«×Â8Üó’Îò-
+Dsquid:S11707"!Make this final field static too.(Ú¯ç±ûÿÿÿÿ8 ÜŸÎò-
+}squid:S001167"YRename this field "GTFS_LONGITUDE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú¯ç±ûÿÿÿÿ8 ÜŸÎò-
+?squid:S11703"!Make this final field static too.(¥æ®ö8©ğÎò-
+Dsquid:S11702"!Make this final field static too.(ØĞ¡ûÿÿÿÿ8©ğÎò-
+ssquid:S001163"TRename this field "STOP_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥æ®ö8©ğÎò-
+?squid:S1148p"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+ssquid:S001161"URename this field "STATION_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø­{8‹ñ­Íò-
+{squid:S001162"WRename this field "GTFS_STOP_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØĞ¡ûÿÿÿÿ8©ğÎò-
+zsquid:S00116)"cRename this field "MTA_SUBWAY_FEED_BASE_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚ÌûW
+qsquid:S001164"RRename this field "BOROUGH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°•˜Ÿ8©ğÎò-
+gsquid:UselessImportCheck"<Remove this unused import 'com.google.protobuf.Descriptors'.(çäØæ8¡šÎİò-
+>squid:S11701"!Make this final field static too.(ø­{8‹ñ­Íò-
+Dsquid:S11709"!Make this final field static too.(–İó°şÿÿÿÿ8·œ–Ïò-
+Fsquid:S1148{"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8”©ÀÏò-
+zsquid:S00116/"bRename this field "MTA_SUBWAY_FEED_API_KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì¥èÇ

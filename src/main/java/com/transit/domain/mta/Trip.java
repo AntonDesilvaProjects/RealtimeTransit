@@ -1,5 +1,11 @@
 package com.transit.domain.mta;
 
+import com.google.transit.realtime.GtfsRealtimeNYCT;
+import org.apache.commons.lang3.StringUtils;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,12 +21,26 @@ public class Trip {
     private List<TripUpdate> tripUpdates;
 
     public enum Direction {
-        NORTH, SOUTH;
+        NORTH, SOUTH, EAST, WEST;
         public static Direction fromString(String direction) {
            return Arrays.stream(Direction.values())
-                   .filter(d -> d.name().equalsIgnoreCase(direction))
+                   .filter(d -> d.name().equalsIgnoreCase(direction) ||
+                           (StringUtils.isNotEmpty(direction) && direction.length() == 1 && StringUtils.startsWithIgnoreCase(d.name(), direction)))
                    .findFirst()
                    .orElseThrow(() -> new IllegalArgumentException("Invalid direction string!"));
+        }
+        public static Direction fromMTADirection(GtfsRealtimeNYCT.NyctTripDescriptor.Direction direction) {
+            switch (direction) {
+                case NORTH:
+                    return Direction.NORTH;
+                case SOUTH:
+                    return Direction.SOUTH;
+                case EAST:
+                    return Direction.EAST;
+                case WEST:
+                    return Direction.WEST;
+            }
+            throw new IllegalArgumentException(direction + " is not supported!");
         }
     }
 
@@ -29,7 +49,7 @@ public class Trip {
         private String routeId;
         private String startTime;
         private String startDate;
-        private long startDateTime;
+        private long startDateTime = -1L;
         private String trainId;
         private Direction direction;
         private List<TripUpdate> tripUpdates;
@@ -73,9 +93,14 @@ public class Trip {
             trip.setStartDate(this.startDate);
             trip.setStartTime(this.startTime);
             trip.setStartDateTime(this.startDateTime);
-            trip.setTripId(this.trainId);
+            trip.setTrainId(this.trainId);
             trip.setDirection(this.direction);
             trip.setTripUpdates(this.tripUpdates);
+
+            if(this.startDateTime == -1L && StringUtils.isNotEmpty(startDate) && StringUtils.isNotEmpty(startTime)) {
+                trip.setStartDateTime(LocalDateTime.parse(startDate + " " + startTime,
+                        DateTimeFormatter.ofPattern("yyyyMMdd HH:mm:ss")).atZone(ZoneId.of("America/New_York")).toInstant().toEpochMilli());
+            }
             return trip;
         }
     }
