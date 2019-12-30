@@ -1,9 +1,12 @@
 package com.transit.domain.mta;
 
+import com.transit.utils.GeoUtils;
+import org.apache.commons.collections4.ComparatorUtils;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
-import java.util.List;
-import java.util.function.Predicate;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  *  Provides filtering criteria to search for or discover subway information. Some possibilities:
@@ -27,8 +30,6 @@ import java.util.function.Predicate;
  *          falls within the radius. This is not highly accurate because it doesn't take into account elevation, accessibility, etc.
  *
  *          arrivingIn filter is only applicable if a station is specified
- *
- *
  * */
 public class SubwayTripListParams {
     private List<String> routes;
@@ -39,7 +40,35 @@ public class SubwayTripListParams {
     private double searchRadius = 1; //miles
     private Trip.Direction direction = null;
     private long arrivingIn = Long.MIN_VALUE; //milliseconds
+    private Map<Sorting.Field, Sorting.Order> sortMap;
 
+    private final Comparator<Trip> DISTANCE_SORTER = (trip1, trip2) -> {
+        //find the TripUpdate with the smallest distance for each trip
+        double trip1SmallestDistance = trip1.getTripUpdates().stream().filter(TripUpdate::isMatchedSearch)
+                .map(tripUpdate -> GeoUtils.distance(
+                        tripUpdate.getSubwayStation().getGtfsLatitude(),
+                        this.getLatitude(),
+                        tripUpdate.getSubwayStation().getGetGtfsLongitude(),
+                        this.getLongitude())
+                ).min(Double::compare).orElse(Double.MAX_VALUE);
+        double trip2SmallestDistance = trip2.getTripUpdates().stream().filter(TripUpdate::isMatchedSearch)
+                .map(tripUpdate -> GeoUtils.distance(
+                        tripUpdate.getSubwayStation().getGtfsLatitude(),
+                        this.getLatitude(),
+                        tripUpdate.getSubwayStation().getGetGtfsLongitude(),
+                        this.getLongitude())
+                ).min(Double::compare).orElse(Double.MAX_VALUE);
+
+        return Double.compare(trip1SmallestDistance, trip2SmallestDistance);
+    };
+
+    private final Comparator<Trip> TIME_SORTER = (trip1, trip2) -> {
+        //find the TripUpdate with the shortest time for each trip
+        long trip1ShortestTime = trip1.getTripUpdates().stream().map(TripUpdate::getArrivingIn).min(Long::compare).orElse(Long.MAX_VALUE);
+        long trip2ShortestTime =trip2.getTripUpdates().stream().map(TripUpdate::getArrivingIn).min(Long::compare).orElse(Long.MAX_VALUE);
+        return Long.compare(trip1ShortestTime, trip2ShortestTime);
+    };
+    
     public static final class Builder {
         private List<String> routes;
         private List<String> tripIds;
@@ -49,6 +78,7 @@ public class SubwayTripListParams {
         private double searchRadius = 1; //miles
         private Trip.Direction direction = null;
         private long arrivingIn = Long.MIN_VALUE; //milliseconds
+        private Map<Sorting.Field, Sorting.Order> sortMap = new LinkedHashMap<>(); //preserve the insertion order and apply to sort
 
         public Builder withTripIds(List<String> tripIds) {
             this.tripIds = tripIds;
@@ -90,6 +120,25 @@ public class SubwayTripListParams {
             return this;
         }
 
+        public Builder sortedBy(Sorting.Field field, Sorting.Order order) {
+           this.sortMap.put(field, order);
+           return this;
+        }
+
+        public Builder sortedByFromString(String sortText) {
+            if (!StringUtils.isEmpty(sortText)) {
+                String[] sorts = sortText.split(",");
+                for (String sort : sorts) {
+                    String[] sortFieldOrder = sort.split(":");
+                    if (sortFieldOrder.length != 2) {
+                        throw new IllegalArgumentException(sortText + " is an invalid sort text!");
+                    }
+                    this.sortMap.put(Sorting.Field.fromString(sortFieldOrder[0]), Sorting.Order.fromString(sortFieldOrder[1]));
+                }
+            }
+            return this;
+        }
+
         public SubwayTripListParams build() {
             SubwayTripListParams subwayTripListParams = new SubwayTripListParams();
             subwayTripListParams.longitude = this.longitude;
@@ -100,6 +149,7 @@ public class SubwayTripListParams {
             subwayTripListParams.routes = this.routes;
             subwayTripListParams.arrivingIn = this.arrivingIn;
             subwayTripListParams.searchRadius = this.searchRadius;
+            subwayTripListParams.sortMap = Collections.unmodifiableMap(this.sortMap);
             return subwayTripListParams;
         }
     }
@@ -158,5 +208,35 @@ public class SubwayTripListParams {
 
     public double getSearchRadius() {
         return searchRadius;
+    }
+
+    public Map<Sorting.Field, Sorting.Order> getSortMap() {
+        return sortMap;
+    }
+
+    public Optional<Comparator<Trip>> buildSorter() {
+        List<Comparator<Trip>> sortList = sortMap.keySet().stream().map(f -> getSorter(f, sortMap.get(f))).filter(Objects::nonNull).collect(Collectors.toList());
+        return CollectionUtils.isEmpty(sortList) ? Optional.empty() : Optional.of(ComparatorUtils.chainedComparator(sortList));
+    }
+
+    private Comparator<Trip> getSorter(Sorting.Field field, Sorting.Order order) {
+        Comparator<Trip> sorter = null;
+        switch (field) {
+            case ROUTE:
+                sorter = Comparator.comparing(Trip::getRouteId);
+                break;
+            case DISTANCE:
+                sorter = isLocationSearch() ? DISTANCE_SORTER : null;
+                break;
+            case ARRIVAL_TIME:
+                sorter = isTimeSearch() ? TIME_SORTER : null;
+                break;
+            default:
+                return null;
+        }
+        if (sorter != null && order == Sorting.Order.DESCENDING) {
+            sorter = sorter.reversed();
+        }
+        return sorter;
     }
 }

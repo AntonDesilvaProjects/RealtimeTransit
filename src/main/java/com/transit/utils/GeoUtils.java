@@ -35,9 +35,13 @@ public class GeoUtils {
         return Math.sqrt(distance);
     }
 
+    public static double distance(double lat1, double lat2, double lon1, double lon2) {
+        return distance(lat1, lat2, lon1, lon2, 0, 0);
+    }
+
     public static boolean isWithinRadius(double latitude1, double longitude1, double latitude2, double longitude2, double radius) {
         UnitConverter converter = METER.getConverterTo(MILE);
-        double distanceInMeters = distance(latitude1, latitude2, longitude1, longitude2, 0, 0);
+        double distanceInMeters = distance(latitude1, latitude2, longitude1, longitude2);
         double distanceInMiles = Math.round(converter.convert(distanceInMeters) * 100.0) / 100.0; //round to two decimal places
         return distanceInMiles <= radius;
     }

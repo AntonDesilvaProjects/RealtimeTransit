@@ -21,6 +21,8 @@ public class TransitConstants {
         tempFeedIdToFeed.put(51, new Feed(51, Arrays.asList("7")));
         FEED_ID_MAP = Collections.unmodifiableMap(tempFeedIdToFeed);
 
+        //build a map where key is the line name and value is the feed
+        //E -> Feed_E
         Map<String, Feed> tempLineToFeed = tempFeedIdToFeed.values()
                 .stream()
                 .flatMap(f -> f.getLines()

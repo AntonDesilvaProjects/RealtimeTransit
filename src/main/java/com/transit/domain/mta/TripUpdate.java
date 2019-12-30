@@ -6,7 +6,8 @@ public class TripUpdate {
     private long departureTime;
     private String scheduledTrack;
     private String actualTrack;
-    private int arrivingInMinutes;
+    private long arrivingIn;
+    private boolean isMatchedSearch = false;
 
     public static class builder {
         private SubwayStation subwayStation;
@@ -43,6 +44,7 @@ public class TripUpdate {
            tripUpdate.setScheduledTrack(this.scheduledTrack);
            tripUpdate.setActualTrack(this.actualTrack);
            tripUpdate.setDepartureTime(this.departureTime);
+           tripUpdate.setArrivingIn(this.arrivalTime - System.currentTimeMillis());
            return tripUpdate;
         }
     }
@@ -92,12 +94,21 @@ public class TripUpdate {
         return this;
     }
 
-    public int getArrivingInMinutes() {
-        return arrivingInMinutes;
+    public long getArrivingIn() {
+        return arrivingIn;
     }
 
-    public TripUpdate setArrivingInMinutes(int arrivingInMinutes) {
-        this.arrivingInMinutes = arrivingInMinutes;
+    public TripUpdate setArrivingIn(long arrivingIn) {
+        this.arrivingIn = arrivingIn;
         return this;
+    }
+
+    public boolean isMatchedSearch() {
+        return isMatchedSearch;
+    }
+
+    public boolean setMatchedSearch(boolean matchedSearch) {
+        isMatchedSearch = matchedSearch;
+        return isMatchedSearch;
     }
 }

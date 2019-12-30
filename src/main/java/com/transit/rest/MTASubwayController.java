@@ -41,7 +41,8 @@ public class MTASubwayController {
                            @RequestParam(value = "longitude", required = false, defaultValue = DOUBLE_MIN_VALUE_STRING) Double longitude,
                            @RequestParam(value = "searchRadius", required = false, defaultValue = "1") Double searchRadius,
                            @RequestParam(value = "direction", required = false) String direction,
-                           @RequestParam(value = "arrivingIn", required = false, defaultValue = LONG_MIN_VALUE_STRING) Long arrivingIn) {
+                           @RequestParam(value = "arrivingIn", required = false, defaultValue = LONG_MIN_VALUE_STRING) Long arrivingIn,
+                           @RequestParam(value = "sortBy", required = false) String sortString) {
 
         SubwayTripListParams subwayTripListParams = new SubwayTripListParams.Builder()
                 .withRoutes(routes)
@@ -50,7 +51,9 @@ public class MTASubwayController {
                 .withLatitudeLongitude(latitude, longitude)
                 .withSearchRadius(searchRadius)
                 .withDirection(Optional.ofNullable(direction).map(Trip.Direction::fromString).orElse(null))
-                .withArrivingIn(arrivingIn).build();
+                .withArrivingIn(arrivingIn)
+                .sortedByFromString(sortString)
+                .build();
         return subwayService.listTrips(subwayTripListParams);
     }
 
