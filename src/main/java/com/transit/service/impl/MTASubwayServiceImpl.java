@@ -96,4 +96,9 @@ public class MTASubwayServiceImpl implements MTASubwayService {
                 .filter(routeFilter.and(tripIdFilter).and(stationFilter).and(directionFilter));
         return listParams.buildSorter().map(filteredTripStream::sorted).orElse(filteredTripStream).collect(Collectors.toList());
     }
+
+    @Override
+    public List<SubwayStation> getSubwayStations() {
+        return mtaSubwayDao.getSubwayStations();
+    }
 }

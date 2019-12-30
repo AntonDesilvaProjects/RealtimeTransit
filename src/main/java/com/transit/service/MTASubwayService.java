@@ -34,4 +34,6 @@ public interface MTASubwayService {
      *  Gets a list of all current trips using the specified list params
      * */
     List<Trip> listTrips(SubwayTripListParams listParams);
+
+    List<SubwayStation> getSubwayStations();
 }
