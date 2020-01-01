@@ -34,6 +34,7 @@ public class MTASubwayTripController {
     }
 
     @GetMapping("/list")
+    @CrossOrigin(origins = "*")
     public List<Trip> list(@RequestParam(value = "routes", required = false) List<String> routes,
                            @RequestParam(value = "tripIds", required = false) List<String> tripIds,
                            @RequestParam(value = "stopIds", required = false) List<String> stopIds,

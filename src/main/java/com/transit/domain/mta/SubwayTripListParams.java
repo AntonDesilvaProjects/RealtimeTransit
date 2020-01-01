@@ -64,8 +64,8 @@ public class SubwayTripListParams {
 
     private final Comparator<Trip> TIME_SORTER = (trip1, trip2) -> {
         //find the TripUpdate with the shortest time for each trip
-        long trip1ShortestTime = trip1.getTripUpdates().stream().map(TripUpdate::getArrivingIn).min(Long::compare).orElse(Long.MAX_VALUE);
-        long trip2ShortestTime =trip2.getTripUpdates().stream().map(TripUpdate::getArrivingIn).min(Long::compare).orElse(Long.MAX_VALUE);
+        long trip1ShortestTime = trip1.getTripUpdates().stream().filter(TripUpdate::isMatchedSearch).map(TripUpdate::getArrivingIn).min(Long::compare).orElse(Long.MAX_VALUE);
+        long trip2ShortestTime =trip2.getTripUpdates().stream().filter(TripUpdate::isMatchedSearch).map(TripUpdate::getArrivingIn).min(Long::compare).orElse(Long.MAX_VALUE);
         return Long.compare(trip1ShortestTime, trip2ShortestTime);
     };
     
@@ -229,7 +229,7 @@ public class SubwayTripListParams {
                 sorter = isLocationSearch() ? DISTANCE_SORTER : null;
                 break;
             case ARRIVAL_TIME:
-                sorter = isTimeSearch() ? TIME_SORTER : null;
+                sorter = TIME_SORTER;
                 break;
             default:
                 return null;

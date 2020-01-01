@@ -35,5 +35,10 @@ public interface MTASubwayService {
      * */
     List<Trip> listTrips(SubwayTripListParams listParams);
 
+    /**
+     *  Get a list of all subway stations.
+     *
+     *  TODO: Need to implement sorting and filtering
+     * */
     List<SubwayStation> getSubwayStations();
 }

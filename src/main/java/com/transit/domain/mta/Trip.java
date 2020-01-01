@@ -2,6 +2,7 @@ package com.transit.domain.mta;
 
 import com.google.transit.realtime.GtfsRealtimeNYCT;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -19,6 +20,7 @@ public class Trip {
     private String trainId;
     private Direction direction;
     private List<TripUpdate> tripUpdates;
+    private String destination;
 
     public enum Direction {
         NORTH, SOUTH, EAST, WEST;
@@ -101,6 +103,12 @@ public class Trip {
                 trip.setStartDateTime(LocalDateTime.parse(startDate + " " + startTime,
                         DateTimeFormatter.ofPattern("yyyyMMdd HH:mm:ss")).atZone(ZoneId.of("America/New_York")).toInstant().toEpochMilli());
             }
+
+            //set the last stop of the train
+            //if there are no trip updates, then the train is already in the final destination?
+            if (!CollectionUtils.isEmpty(this.tripUpdates)) {
+                trip.setDestination(this.tripUpdates.get(this.tripUpdates.size() - 1).getSubwayStation().getName());
+            }
             return trip;
         }
     }
@@ -176,6 +184,15 @@ public class Trip {
 
     public Trip setTripUpdates(List<TripUpdate> tripUpdates) {
         this.tripUpdates = tripUpdates;
+        return this;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public Trip setDestination(String destination) {
+        this.destination = destination;
         return this;
     }
 }

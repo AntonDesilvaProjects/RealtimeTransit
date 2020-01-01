@@ -84,11 +84,11 @@ public class MTASubwayServiceImpl implements MTASubwayService {
             }
             //get a list of trip updates which has the searched stations(either via direct station id or geographic location)
             //also mark the trip update that matched the search
-            return trip.getTripUpdates()
+                return trip.getTripUpdates()
                     .stream()
-                    .filter(tripUpdate -> !listParams.includesStopIds() || tripUpdate.setMatchedSearch(listParams.getGtfsStopIds().contains(tripUpdate.getSubwayStation().getGtfsStopId())))
-                    .filter(tripUpdate -> !listParams.isLocationSearch() || tripUpdate.setMatchedSearch(GeoUtils.isWithinRadius(tripUpdate.getSubwayStation().getGtfsLatitude(), tripUpdate.getSubwayStation().getGetGtfsLongitude(), listParams.getLatitude(), listParams.getLongitude(), listParams.getSearchRadius())))
-                    .anyMatch(tripUpdate -> !listParams.isTimeSearch() || tripUpdate.setMatchedSearch(tripUpdate.getArrivalTime() - System.currentTimeMillis() <= listParams.getArrivingIn()));
+                    .filter(tripUpdate -> !listParams.includesStopIds() || listParams.getGtfsStopIds().contains(tripUpdate.getSubwayStation().getGtfsStopId()))
+                    .filter(tripUpdate -> !listParams.isLocationSearch() || GeoUtils.isWithinRadius(tripUpdate.getSubwayStation().getGtfsLatitude(), tripUpdate.getSubwayStation().getGetGtfsLongitude(), listParams.getLatitude(), listParams.getLongitude(), listParams.getSearchRadius()))
+                    .anyMatch(tripUpdate -> tripUpdate.setMatchedSearch(!listParams.isTimeSearch() || tripUpdate.getArrivalTime() - System.currentTimeMillis() <= listParams.getArrivingIn()));
         };
         Stream<Trip> filteredTripStream = feeds
                 .parallelStream()

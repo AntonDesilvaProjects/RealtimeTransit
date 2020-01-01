@@ -25,10 +25,7 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -86,15 +83,22 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayDao {
             for (GtfsRealtime.FeedEntity entity : feedMessage.getEntityList()) {
                 if (entity.hasTripUpdate()) {
                     GtfsRealtime.TripUpdate gtfsTripUpdate = entity.getTripUpdate();
-                    List<GtfsRealtime.TripUpdate.StopTimeUpdate> updateList = gtfsTripUpdate.getStopTimeUpdateList();
-                    List<TripUpdate> tripUpdates = updateList.stream().map(u ->
-                            new TripUpdate.builder()
-                                .forSubwayStation(stationIdMap.get(u.getStopId().substring(0, u.getStopId().length() - 1)))
-                                .arrivingOn(u.getArrival().getTime())
-                                .departingOn(u.getDeparture().getTime()).build()
-                    ).collect(Collectors.toList());
-
                     GtfsRealtime.TripDescriptor tripDescriptor = gtfsTripUpdate.getTrip();
+                    List<GtfsRealtime.TripUpdate.StopTimeUpdate> updateList = gtfsTripUpdate.getStopTimeUpdateList();
+                    List<TripUpdate> tripUpdates = updateList.stream().map(u -> {
+                        String stationId = u.getStopId().substring(0, u.getStopId().length() - 1);
+                        final SubwayStation station = stationIdMap.get(stationId);
+                        if (station != null) {
+                            return new TripUpdate.builder()
+                                    .forSubwayStation(station)
+                                    .arrivingOn(u.getArrival().getTime() * 1000)
+                                    .departingOn(u.getDeparture().getTime() * 1000).build();
+                        } else {
+                            System.err.println("Unable to find a station for id " + stationId + " in route " + tripDescriptor.getRouteId());
+                            return null;
+                        }
+                    }).filter(Objects::nonNull).collect(Collectors.toList());
+
                     //get the NYCT trip descriptor get additional fields from MTA
                     GtfsRealtimeNYCT.NyctTripDescriptor nyctTripDescriptor = (GtfsRealtimeNYCT.NyctTripDescriptor) tripDescriptor.getField(GtfsRealtimeNYCT.nyctTripDescriptor.getDescriptor());
                     Trip trip = new Trip.builder(tripDescriptor.getTripId())

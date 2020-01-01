@@ -1,3 +1,3 @@
 
-dsquid:UselessImportCheck"9Remove this unused import 'java.util.function.Predicate'.(ïÍ–¶8²’Æ‚ó-
-¤squid:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Àê°üÿÿÿÿ8ØÂ‡ó-
+zsquid:S00116A"VRename this field "TIME_SORTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø†Îüşÿÿÿÿ8ÙÊáŸõ-
+~squid:S00116-"ZRename this field "DISTANCE_SORTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÇÂŠÿÿÿÿÿ8ÙÊáŸõ-
