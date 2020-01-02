@@ -2,7 +2,7 @@ package com.transit.service.impl;
 
 import com.transit.TransitConstants;
 import com.transit.dao.MTASubwayDao;
-import com.transit.domain.mta.*;
+import com.transit.domain.mta.subway.*;
 import com.transit.service.MTASubwayService;
 import com.transit.utils.GeoUtils;
 import org.apache.commons.lang3.StringUtils;

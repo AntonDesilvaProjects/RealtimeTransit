@@ -3,21 +3,19 @@ package com.transit.dao.impl;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.google.protobuf.Descriptors;
 import com.google.protobuf.ExtensionRegistry;
 import com.google.transit.realtime.GtfsRealtime;
 import com.google.transit.realtime.GtfsRealtimeNYCT;
 import com.transit.TransitConstants;
 import com.transit.dao.MTASubwayDao;
-import com.transit.domain.mta.Feed;
-import com.transit.domain.mta.SubwayStation;
-import com.transit.domain.mta.Trip;
-import com.transit.domain.mta.TripUpdate;
+import com.transit.domain.mta.subway.Feed;
+import com.transit.domain.mta.subway.SubwayStation;
+import com.transit.domain.mta.subway.Trip;
+import com.transit.domain.mta.subway.TripUpdate;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -34,13 +32,13 @@ import java.util.stream.Collectors;
 @Component
 public class MTASubwayGTFSDaoImpl implements MTASubwayDao {
 
-    @Value("${mta.api.feed-base-url}")
+    @Value("${mta.api.subway.feed-base-url}")
     private String MTA_SUBWAY_FEED_BASE_URL;
 
-    @Value("${mta.api.stations-url}")
+    @Value("${mta.api.subway.stations-url}")
     private String MTA_SUBWAY_STATIONS_URL;
 
-    @Value("${mta.api.key}")
+    @Value("${mta.api.subway.key}")
     private String MTA_SUBWAY_FEED_API_KEY;
 
     private final String STATION_ID = "Station ID";

@@ -1,7 +1,7 @@
 package com.transit.rest;
 
-import com.transit.domain.mta.SubwayTripListParams;
-import com.transit.domain.mta.Trip;
+import com.transit.domain.mta.subway.SubwayTripListParams;
+import com.transit.domain.mta.subway.Trip;
 import com.transit.service.MTASubwayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

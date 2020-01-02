@@ -1,7 +1,6 @@
 import com.google.protobuf.ExtensionRegistry;
 import com.google.transit.realtime.GtfsRealtime;
 import com.google.transit.realtime.GtfsRealtimeNYCT;
-import com.transit.domain.mta.Trip;
 
 import java.io.IOException;
 import java.net.URL;

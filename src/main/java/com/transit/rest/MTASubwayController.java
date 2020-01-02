@@ -1,6 +1,6 @@
 package com.transit.rest;
 
-import com.transit.domain.mta.SubwayStation;
+import com.transit.domain.mta.subway.SubwayStation;
 import com.transit.service.MTASubwayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

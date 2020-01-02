@@ -2,18 +2,14 @@ package com.transit.service.impl;
 
 import com.transit.dao.MTASubwayDao;
 import com.transit.dao.impl.MTASubwayGTFSDaoImpl;
-import com.transit.domain.mta.*;
+import com.transit.domain.mta.subway.*;
 import com.transit.service.MTASubwayService;
-import com.transit.utils.GeoUtils;
-import org.apache.commons.collections4.ComparatorUtils;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

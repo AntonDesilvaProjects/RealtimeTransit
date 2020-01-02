@@ -1,6 +1,6 @@
 package com.transit.service;
 
-import com.transit.domain.mta.*;
+import com.transit.domain.mta.subway.*;
 
 import java.util.List;
 

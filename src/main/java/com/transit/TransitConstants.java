@@ -1,6 +1,6 @@
 package com.transit;
 
-import com.transit.domain.mta.Feed;
+import com.transit.domain.mta.subway.Feed;
 
 import java.util.*;
 import java.util.stream.Collectors;
