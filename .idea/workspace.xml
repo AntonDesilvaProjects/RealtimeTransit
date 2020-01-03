@@ -2,54 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cf8edcb-2cae-4b3e-8339-5a8737b2abd8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Runner2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Runner2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/cache/MTASubwayStationCacheLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/cache/MTASubwayStationCacheLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/dao/MTASubwayDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/dao/MTASubwayDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/Feed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/Feed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/Sorting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/Sorting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/SubwayStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/SubwayStation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/SubwayStationListParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/SubwayStationListParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/SubwayTripListParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/SubwayTripListParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/Trip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/Trip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/TripUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/TripUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/rest/MTASubwayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/rest/MTASubwayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/rest/MTASubwayTripController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/rest/MTASubwayTripController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/service/MTABusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/service/MTABusService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/service/MTASubwayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/service/MTASubwayService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTASubwayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTASubwayServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/transit/service/impl/MTASubwayServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/transit/service/impl/MTASubwayServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Runner2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Runner2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/TransitConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/TransitConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/cache/MTASubwayStationCacheLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/cache/MTASubwayStationCacheLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/dao/MTASubwayDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/dao/MTASubwayDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/dao/impl/MTASubwayGTFSDaoImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/dao/impl/MTASubwayGTFSDaoImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/dao/impl/MTASubwayGTFSDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/dao/impl/MTASubwayGTFSDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Feed.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Sorting$Field.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Sorting$Order.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Sorting.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/SubwayStation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/SubwayStationListParams.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/SubwayTripListParams$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/SubwayTripListParams$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/SubwayTripListParams.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Trip$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Trip$Direction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Trip$builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/Trip.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/TripUpdate$builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/domain/mta/TripUpdate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/rest/MTASubwayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/rest/MTASubwayController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/rest/MTASubwayTripController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/rest/MTASubwayTripController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/service/MTASubwayService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/service/MTASubwayService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/transit/service/impl/MTASubwayServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/transit/service/impl/MTASubwayServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/transit/service/impl/MTASubwayServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/transit/service/impl/MTASubwayServiceImplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTABusServiceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTABusServiceDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/BusListParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/BusListParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/MetaDataResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/MetaDataResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/Stop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/Stop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTABusServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTABusServiceImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -79,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTABusServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+            <state relative-caret-position="560">
+              <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#368#369#0" expanded="true" />
@@ -90,14 +47,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTABusServiceDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="56" column="57" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="57" />
+            <state relative-caret-position="488">
+              <caret line="94" column="41" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3554#3555#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/MetaDataResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+            <state relative-caret-position="500">
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#281#282#0" expanded="true" />
@@ -127,26 +83,41 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/Route.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/Stop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+            <state relative-caret-position="-40">
+              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
               <folding>
-                <element signature="e#326#327#0" expanded="true" />
-                <element signature="e#450#451#0" expanded="true" />
-                <element signature="e#484#485#0" expanded="true" />
-                <element signature="e#641#642#0" expanded="true" />
-                <element signature="e#672#673#0" expanded="true" />
-                <element signature="e#818#819#0" expanded="true" />
-                <element signature="e#850#851#0" expanded="true" />
-                <element signature="e#1000#1001#0" expanded="true" />
-                <element signature="e#1032#1033#0" expanded="true" />
-                <element signature="e#1174#1175#0" expanded="true" />
-                <element signature="e#1201#1202#0" expanded="true" />
-                <element signature="e#1322#1323#0" expanded="true" />
-                <element signature="e#1348#1349#0" expanded="true" />
-                <element signature="e#1470#1471#0" expanded="true" />
-                <element signature="e#1498#1499#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#475#476#0" expanded="true" />
+                <element signature="e#599#600#0" expanded="true" />
+                <element signature="e#626#627#0" expanded="true" />
+                <element signature="e#755#756#0" expanded="true" />
+                <element signature="e#787#788#0" expanded="true" />
+                <element signature="e#929#930#0" expanded="true" />
+                <element signature="e#954#955#0" expanded="true" />
+                <element signature="e#1074#1075#0" expanded="true" />
+                <element signature="e#1105#1106#0" expanded="true" />
+                <element signature="e#1250#1251#0" expanded="true" />
+                <element signature="e#1282#1283#0" expanded="true" />
+                <element signature="e#1440#1441#0" expanded="true" />
+                <element signature="e#1481#1482#0" expanded="true" />
+                <element signature="e#1668#1669#0" expanded="true" />
+                <element signature="e#1697#1698#0" expanded="true" />
+                <element signature="e#1845#1846#0" expanded="true" />
+                <element signature="e#1876#1877#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/dao/MTABusServiceDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -167,8 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/BusListParams.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+            <state relative-caret-position="328">
+              <caret line="67" column="80" selection-start-line="67" selection-start-column="80" selection-end-line="67" selection-end-column="80" />
               <folding>
                 <element signature="e#1806#1807#0" expanded="true" />
                 <element signature="e#1837#1838#0" expanded="true" />
@@ -178,18 +149,8 @@
                 <element signature="e#2228#2229#0" expanded="true" />
                 <element signature="e#2394#2395#0" expanded="true" />
                 <element signature="e#2422#2423#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/rest/MTASubwayController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2820#2821#0" expanded="true" />
+                <element signature="e#2850#2851#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -239,15 +200,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/Trip.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/transit/dao/MTABusServiceDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTABusServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/transit/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/Route.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/MetaDataResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/BusListParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/transit/rest/MTABusController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/transit/service/MTABusService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/Stop.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/BusListParams.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTABusServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTABusServiceDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/MetaDataResponse.java" />
       </list>
     </option>
   </component>
@@ -350,6 +312,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="transit" type="462c0819:PsiDirectoryNode" />
               <item name="mta" type="462c0819:PsiDirectoryNode" />
+              <item name="bus" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="realtimemta" type="b2602c69:ProjectViewProjectNode" />
+              <item name="realtimemta" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="transit" type="462c0819:PsiDirectoryNode" />
+              <item name="mta" type="462c0819:PsiDirectoryNode" />
               <item name="subway" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -379,6 +351,15 @@
               <item name="transit" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="realtimemta" type="b2602c69:ProjectViewProjectNode" />
+              <item name="realtimemta" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="transit" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="realtimemta" type="b2602c69:ProjectViewProjectNode" />
@@ -655,7 +636,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18123667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18123667" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -666,12 +647,12 @@
       <window_info id="Job Explorer" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.53304905" visible="true" weight="0.39666668" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.53304905" weight="0.39666668" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49520257" weight="0.36888888" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.15777777" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.112222224" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.46695095" side_tool="true" weight="0.5888889" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48933902" />
@@ -947,23 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/Stop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/dao/MTABusServiceDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE-sources.jar!/org/springframework/web/client/RestTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1052,18 +1016,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/MetaDataResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.9.RELEASE/spring-core-5.0.9.RELEASE.jar!/org/springframework/util/LinkedMultiValueMap.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1079,23 +1031,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="45" column="94" selection-start-line="37" selection-start-column="27" selection-end-line="45" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/BusListParams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding>
-            <element signature="e#1806#1807#0" expanded="true" />
-            <element signature="e#1837#1838#0" expanded="true" />
-            <element signature="e#2000#2001#0" expanded="true" />
-            <element signature="e#2032#2033#0" expanded="true" />
-            <element signature="e#2193#2194#0" expanded="true" />
-            <element signature="e#2228#2229#0" expanded="true" />
-            <element signature="e#2394#2395#0" expanded="true" />
-            <element signature="e#2422#2423#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1119,10 +1054,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/Stop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#599#600#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="true" />
+            <element signature="e#755#756#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
+            <element signature="e#954#955#0" expanded="true" />
+            <element signature="e#1074#1075#0" expanded="true" />
+            <element signature="e#1105#1106#0" expanded="true" />
+            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#1282#1283#0" expanded="true" />
+            <element signature="e#1440#1441#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
+            <element signature="e#1668#1669#0" expanded="true" />
+            <element signature="e#1697#1698#0" expanded="true" />
+            <element signature="e#1845#1846#0" expanded="true" />
+            <element signature="e#1876#1877#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/BusListParams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="67" column="80" selection-start-line="67" selection-start-column="80" selection-end-line="67" selection-end-column="80" />
+          <folding>
+            <element signature="e#1806#1807#0" expanded="true" />
+            <element signature="e#1837#1838#0" expanded="true" />
+            <element signature="e#2000#2001#0" expanded="true" />
+            <element signature="e#2032#2033#0" expanded="true" />
+            <element signature="e#2193#2194#0" expanded="true" />
+            <element signature="e#2228#2229#0" expanded="true" />
+            <element signature="e#2394#2395#0" expanded="true" />
+            <element signature="e#2422#2423#0" expanded="true" />
+            <element signature="e#2820#2821#0" expanded="true" />
+            <element signature="e#2850#2851#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTABusServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        <state relative-caret-position="560">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#368#369#0" expanded="true" />
@@ -1131,13 +1112,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTABusServiceDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/dao/MTABusServiceDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="56" column="57" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="57" />
+        <state relative-caret-position="220">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3554#3555#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTABusServiceDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="94" column="41" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/bus/MetaDataResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#316#317#0" expanded="true" />
           </folding>
         </state>
       </provider>

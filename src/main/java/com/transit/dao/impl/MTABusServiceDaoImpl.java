@@ -5,7 +5,6 @@ import com.transit.domain.mta.bus.BusListParams;
 import com.transit.domain.mta.bus.MetaDataResponse;
 import com.transit.domain.mta.bus.Route;
 import com.transit.domain.mta.bus.Stop;
-import org.apache.commons.collections4.map.MultiValueMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
@@ -73,6 +72,30 @@ public class MTABusServiceDaoImpl implements MTABusServiceDao {
 
     @Override
     public List<Stop> listStops(BusListParams busListParams) {
-        return null;
+        StringBuilder url = new StringBuilder(MTA_BUSTIME_BASE_URL);
+        LinkedMultiValueMap<String, String> urlParamMap = new LinkedMultiValueMap<>();
+        urlParamMap.add("key", MTA_BUS_KEY);
+
+        if (busListParams.isLocationSearch()) {
+            //http://bustime.mta.info/api/where/stops-for-location.json?lat=40.702659&lon=-73.821620&radius=1000&key=db618ed9-fa13-4953-8e88-e4c0d0fdf16e&query=503084
+            url.append(STOPS_FOR_LOCATION_PATH);
+            urlParamMap.add("lat", Double.toString(busListParams.getLatitude()));
+            urlParamMap.add("lon", Double.toString(busListParams.getLongitude()));
+            urlParamMap.add("radius", Double.toString(busListParams.getSearchRadius()));
+            //query only works if a position is specified
+            if (busListParams.isQuerySearch()) {
+                urlParamMap.add("query", busListParams.getQuery());
+            }
+        } else {
+            //http://bustime.mta.info/api/where/stops-for-route/MTA%20NYCT_Q54.json?key=db618ed9-fa13-4953-8e88-e4c0d0fdf16e&includePolylines=false&version=2
+            url.append(String.format(STOPS_FOR_ROUTE_PATH_TEMPLATE, busListParams.getRouteId()));
+        }
+
+        UriComponents builder = UriComponentsBuilder.fromHttpUrl(url.toString()).queryParams(urlParamMap).build();
+        ResponseEntity<MetaDataResponse<MetaDataResponse.RouteResponse>> response = restOperations.exchange(builder.toString(),
+                HttpMethod.GET,
+                new HttpEntity<>(new HttpHeaders()),
+                new ParameterizedTypeReference<MetaDataResponse<MetaDataResponse.RouteResponse>>(){});
+        return response.getBody().getData().getList();
     }
 }

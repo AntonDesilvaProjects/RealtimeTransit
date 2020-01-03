@@ -7,6 +7,7 @@ public class BusListParams {
     private double longitude = Double.MIN_VALUE;
     private double searchRadius = 1; //in miles - actual API is in meters so conversion is needed
     private String query;
+    private String routeId;
 
     private BusListParams() {}
 
@@ -15,6 +16,7 @@ public class BusListParams {
         private double longitude = Double.MIN_VALUE;
         private double searchRadius = 1; //in miles - actual API is in meters so conversion is needed
         private String query;
+        private String routeId;
 
         public Builder() {
         }
@@ -39,12 +41,18 @@ public class BusListParams {
             return this;
         }
 
+        public Builder withRouteId(String routeId) {
+            this.routeId = routeId;
+            return this;
+        }
+
         public BusListParams build() {
             BusListParams busListParams = new BusListParams();
             busListParams.searchRadius = this.searchRadius;
             busListParams.latitude = this.latitude;
             busListParams.longitude = this.longitude;
             busListParams.query = this.query;
+            busListParams.routeId = this.routeId;
             return busListParams;
         }
     }
@@ -56,6 +64,8 @@ public class BusListParams {
     public boolean isQuerySearch() {
         return StringUtils.isNotEmpty(query);
     }
+
+    public boolean isRouteIdSearch() { return StringUtils.isNotEmpty(routeId); }
 
     public double getLatitude() {
         return latitude;
@@ -90,6 +100,15 @@ public class BusListParams {
 
     public BusListParams setQuery(String query) {
         this.query = query;
+        return this;
+    }
+
+    public String getRouteId() {
+        return routeId;
+    }
+
+    public BusListParams setRouteId(String routeId) {
+        this.routeId = routeId;
         return this;
     }
 }

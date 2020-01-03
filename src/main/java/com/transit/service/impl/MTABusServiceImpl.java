@@ -23,6 +23,9 @@ public class MTABusServiceImpl implements MTABusService {
 
     @Override
     public List<Stop> listStops(BusListParams busListParams) {
-        return null;
+        if (!busListParams.isLocationSearch() && !busListParams.isRouteIdSearch()) {
+            throw new IllegalArgumentException("Either a route id or geographic location must be specified to retrieve stops!");
+        }
+        return busServiceDao.listStops(busListParams);
     }
 }
