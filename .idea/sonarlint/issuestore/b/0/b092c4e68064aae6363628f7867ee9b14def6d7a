@@ -1,0 +1,10 @@
+
+Fsquid:S1068"*Remove this unused "routes" private field.(æû»äûÿÿÿÿ
+Fsquid:S1068"/Remove this unused "gtfsStopIds" private field.(ˆô£²
+Hsquid:S1068	",Remove this unused "boroughs" private field.(Ğ…øËùÿÿÿÿ
+Esquid:S1068
+".Remove this unused "searchText" private field.(§È©°
+Hsquid:S1068",Remove this unused "latitude" private field.(ìÈŸúÿÿÿÿ
+Dsquid:S1068"-Remove this unused "longitude" private field.(Êé‚Ô
+Gsquid:S1068"0Remove this unused "searchRadius" private field.(ùÚ—®
+Gsquid:S1068"+Remove this unused "sortMap" private field.(¯ê«÷üÿÿÿÿ

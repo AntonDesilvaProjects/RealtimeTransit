@@ -9,7 +9,7 @@ import java.net.URL;
 // stations.csv: http://web.mta.info/developers/data/nyct/subway/Stations.csv
 public class Runner2 {
     public static void main(String[] args) throws IOException {
-        URL url = new URL("http://datamine.mta.info/mta_esi.php?key=4d4a960c9b1c61ad1ed62b5fdfaf7018&feed_id=26");
+        URL url = new URL("http://datamine.mta.info/mta_esi.php?key=4d4a960c9b1c61ad1ed62b5fdfaf7018&feed_id=21");
         ExtensionRegistry registry = ExtensionRegistry.newInstance();
         registry.add(GtfsRealtimeNYCT.nyctFeedHeader);
         registry.add(GtfsRealtimeNYCT.nyctStopTimeUpdate);
@@ -20,9 +20,10 @@ public class Runner2 {
         {
             if( entity.hasTripUpdate()) {
                 //if (entity.getTripUpdate().getTrip().getRouteId().equals("F")) {
-                    System.out.println(entity.getTripUpdate().getTrip()); //this just prints out the trip information
-                    System.out.println(entity.getTripUpdate().getStopTimeUpdateList());
-                    System.out.println("-----------------------------");
+                    //System.out.println(entity.getTripUpdate().getTrip()); //this just prints out the trip information
+                   // System.out.println(entity.getTripUpdate().getStopTimeUpdateList());
+                    System.out.println(entity.getTripUpdate().getDelay());
+                    //System.out.println("-----------------------------");
                // }
             }
 

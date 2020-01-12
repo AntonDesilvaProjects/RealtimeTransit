@@ -41,4 +41,9 @@ public interface MTASubwayService {
      *  TODO: Need to implement sorting and filtering
      * */
     List<SubwayStation> getSubwayStations();
+
+    /**
+     *  Gets the status of the subway system including delays, planned work, and other service alerts
+     * */
+    SubwayStatusResponse getSubwayStatus();
 }

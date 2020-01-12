@@ -1,7 +1,6 @@
 package com.transit.domain.mta.bus;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import com.fasterxml.jackson.annotation.JsonAlias;
 import java.util.List;
 
 public class Stop {
@@ -9,12 +8,13 @@ public class Stop {
     private String name;
     private String direction;
     private String id;
+    @JsonAlias("lat")
     private double latitude;
+    @JsonAlias("lon")
     private double longitude;
-    private String wheelChairBoarding;
+    private String wheelchairBoarding;
     private List<Route> routes;
-    @JsonIgnore
-    private List<Integer> routeIds;
+    private List<String> routeIds;
 
     public String getCode() {
         return code;
@@ -71,11 +71,11 @@ public class Stop {
     }
 
     public String getWheelChairBoarding() {
-        return wheelChairBoarding;
+        return wheelchairBoarding;
     }
 
     public Stop setWheelChairBoarding(String wheelChairBoarding) {
-        this.wheelChairBoarding = wheelChairBoarding;
+        this.wheelchairBoarding = wheelChairBoarding;
         return this;
     }
 
@@ -88,11 +88,11 @@ public class Stop {
         return this;
     }
 
-    public List<Integer> getRouteIds() {
+    public List<String> getRouteIds() {
         return routeIds;
     }
 
-    public Stop setRouteIds(List<Integer> routeIds) {
+    public Stop setRouteIds(List<String> routeIds) {
         this.routeIds = routeIds;
         return this;
     }

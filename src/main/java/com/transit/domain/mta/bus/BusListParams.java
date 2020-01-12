@@ -1,5 +1,6 @@
 package com.transit.domain.mta.bus;
 
+import com.transit.domain.mta.subway.Trip;
 import org.apache.commons.lang3.StringUtils;
 
 public class BusListParams {
@@ -8,6 +9,9 @@ public class BusListParams {
     private double searchRadius = 1; //in miles - actual API is in meters so conversion is needed
     private String query;
     private String routeId;
+    private String stopId;
+    private String vehicleId;
+    private Trip.Direction direction;
 
     private BusListParams() {}
 
@@ -17,6 +21,9 @@ public class BusListParams {
         private double searchRadius = 1; //in miles - actual API is in meters so conversion is needed
         private String query;
         private String routeId;
+        private String stopId;
+        private String vehicleId;
+        private Trip.Direction direction;
 
         public Builder() {
         }
@@ -46,6 +53,21 @@ public class BusListParams {
             return this;
         }
 
+        public Builder withStopId(String stopId) {
+            this.stopId = stopId;
+            return this;
+        }
+
+        public Builder withDirection(Trip.Direction direction) {
+            this.direction = direction;
+            return this;
+        }
+
+        public Builder withVehicleId(String vehicleId) {
+            this.vehicleId = vehicleId;
+            return this;
+        }
+
         public BusListParams build() {
             BusListParams busListParams = new BusListParams();
             busListParams.searchRadius = this.searchRadius;
@@ -53,6 +75,9 @@ public class BusListParams {
             busListParams.longitude = this.longitude;
             busListParams.query = this.query;
             busListParams.routeId = this.routeId;
+            busListParams.stopId = this.stopId;
+            busListParams.vehicleId = this.vehicleId;
+            busListParams.direction = this.direction;
             return busListParams;
         }
     }
@@ -66,6 +91,12 @@ public class BusListParams {
     }
 
     public boolean isRouteIdSearch() { return StringUtils.isNotEmpty(routeId); }
+
+    public boolean isStopSearch() { return StringUtils.isNotEmpty(stopId); }
+
+    public boolean isDirectionSearch() { return direction != null; }
+
+    public boolean isVehicleSearch() { return StringUtils.isNotEmpty(vehicleId); }
 
     public double getLatitude() {
         return latitude;
@@ -94,6 +125,24 @@ public class BusListParams {
         return this;
     }
 
+    public String getStopId() {
+        return stopId;
+    }
+
+    public BusListParams setStopId(String stopId) {
+        this.stopId = stopId;
+        return this;
+    }
+
+    public Trip.Direction getDirection() {
+        return direction;
+    }
+
+    public BusListParams setDirection(Trip.Direction direction) {
+        this.direction = direction;
+        return this;
+    }
+
     public String getQuery() {
         return query;
     }
@@ -109,6 +158,15 @@ public class BusListParams {
 
     public BusListParams setRouteId(String routeId) {
         this.routeId = routeId;
+        return this;
+    }
+
+    public String getVehicleId() {
+        return vehicleId;
+    }
+
+    public BusListParams setVehicleId(String vehicleId) {
+        this.vehicleId = vehicleId;
         return this;
     }
 }

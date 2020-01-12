@@ -3,10 +3,12 @@ mta:
     subway:
       feed-base-url: 'http://datamine.mta.info/mta_esi.php'
       stations-url: 'http://web.mta.info/developers/data/nyct/subway/Stations.csv'
+      status-url: 'http://web.mta.info/status/ServiceStatusSubway.xml'
       key: '4d4a960c9b1c61ad1ed62b5fdfaf7018'
     bus:
       key: 'db618ed9-fa13-4953-8e88-e4c0d0fdf16e'
       bustime-base-url: 'http://bustime.mta.info/api/where'
-      bus-tracking-url: 'http://api.prod.obanyc.com/api/siri/vehicle-monitoring.json'
+      siri-vehicle-url: 'http://api.prod.obanyc.com/api/siri/vehicle-monitoring.json'
+      siri-stop-url: 'http://bustime.mta.info/api/siri/stop-monitoring.json'
 server:
   port: 3000

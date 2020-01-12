@@ -1,0 +1,18 @@
+
+€squid:S00116%"aRename this field "ROUTES_FOR_AGENCY_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ÉŒ8„—«½ö-
+~squid:S00116""_Rename this field "MTA_BUS_TRACKING_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï®â–8÷²ºö-
+†squid:S00116("bRename this field "STOPS_FOR_LOCATION_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÑ‹úÿÿÿÿ8„—«½ö-
+‚squid:S00116&"cRename this field "ROUTES_FOR_LOCATION_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«æúÑ8„—«½ö-
+dsquid:S1075("ARefactor your code to get this URI from a customizable parameter.(ïÑ‹úÿÿÿÿ8„—«½ö-
+_squid:S1075&"ARefactor your code to get this URI from a customizable parameter.(«æúÑ8„—«½ö-
+Œsquid:S00116'"hRename this field "STOPS_FOR_ROUTE_PATH_TEMPLATE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠçÊüÿÿÿÿ8„—«½ö-
+[
+squid:S106r"9Replace this use of System.out or System.err by a logger.(˜Š¿Ûüÿÿÿÿ8½ó²÷-
+ƒsquid:S00116"_Rename this field "MTA_BUSTIME_BASE_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢‚ñ€ûÿÿÿÿ8¢û—ºö-
+tsquid:S00116$"URename this field "MTA_AGENCY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„±×Â8ĞÕ¾ºö-
+dsquid:S1075'"ARefactor your code to get this URI from a customizable parameter.(ŠçÊüÿÿÿÿ8„—«½ö-
+zsquid:S00116"VRename this field "MTA_BUS_KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òıºúøÿÿÿÿ8¾±ê¼ö-
+?squid:S1170$"!Make this final field static too.(„±×Â8ĞÕ¾ºö-
+Dsquid:S1170("!Make this final field static too.(ïÑ‹úÿÿÿÿ8„—«½ö-
+Dsquid:S1170'"!Make this final field static too.(ŠçÊüÿÿÿÿ8„—«½ö-
+?squid:S1170&"!Make this final field static too.(«æúÑ8„—«½ö-

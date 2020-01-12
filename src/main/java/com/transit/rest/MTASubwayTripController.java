@@ -21,11 +21,7 @@ public class MTASubwayTripController {
 
     @GetMapping
     public List<Trip> getTrips() {
-        long startTime = System.nanoTime();
-        List<Trip> results = subwayService.getTrips();
-        long endTime = System.nanoTime();
-        System.out.println("That took " + (endTime - startTime) / 1000000 + " milliseconds");
-        return results;
+        return subwayService.getTrips();
     }
 
     @GetMapping("/{route}")

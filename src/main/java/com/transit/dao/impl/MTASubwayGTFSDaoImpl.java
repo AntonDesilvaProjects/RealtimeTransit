@@ -8,16 +8,18 @@ import com.google.transit.realtime.GtfsRealtime;
 import com.google.transit.realtime.GtfsRealtimeNYCT;
 import com.transit.TransitConstants;
 import com.transit.dao.MTASubwayDao;
-import com.transit.domain.mta.subway.Feed;
-import com.transit.domain.mta.subway.SubwayStation;
-import com.transit.domain.mta.subway.Trip;
-import com.transit.domain.mta.subway.TripUpdate;
+import com.transit.domain.mta.subway.*;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import javax.annotation.PostConstruct;
+import javax.xml.parsers.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -38,6 +40,9 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayDao {
     @Value("${mta.api.subway.stations-url}")
     private String MTA_SUBWAY_STATIONS_URL;
 
+    @Value("${mta.api.subway.status-url}")
+    private String MTA_SUBWAY_STATUS_URL;
+
     @Value("${mta.api.subway.key}")
     private String MTA_SUBWAY_FEED_API_KEY;
 
@@ -53,6 +58,67 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayDao {
 
     private ExtensionRegistry gtfsExtensionRegistry;
     private LoadingCache<String, Map<String, SubwayStation>> subwayStationCache;
+
+    private final Function<Node, SubwayStatusResponse.SubwayStatus> mapSituationNodeToSubwayStatus = situationNode -> {
+        SubwayStatusResponse.SubwayStatus status = new SubwayStatusResponse.SubwayStatus();
+        NodeList childNodes = situationNode.getChildNodes();
+        for (int j = 0; j < childNodes.getLength(); j++) {
+            Node childNode = childNodes.item(j);
+            String nodeValue = childNode.getTextContent();
+            switch (childNode.getNodeName()) {
+                case "CreationTime" :
+                    status.setTime(nodeValue);
+                    break;
+                case "Summary":
+                    status.setSummary(nodeValue);
+                    break;
+                case "Description":
+                    status.setDescription(nodeValue);
+                    break;
+                case "LongDescription" :
+                    status.setLongDescription(nodeValue);
+                    break;
+                case "Planned" :
+                    status.setPlanned(Boolean.parseBoolean(nodeValue));
+                    break;
+                case "ReasonName" :
+                    status.setReasonName(nodeValue);
+                    break;
+                case "Affects":
+                    NodeList vehicleJourneyNodeList = childNode.getChildNodes(); //get the VehicleJourney Objects
+                    List<SubwayStatusResponse.SubwayStatus.AffectedTrip> affectedTrips = new ArrayList<>();
+                    for (int k = 0; k < vehicleJourneyNodeList.getLength(); k++) {
+                        Node vehicleJourneyNode = vehicleJourneyNodeList.item(k);
+                        NodeList affectedJourneyNodeList = vehicleJourneyNode.getChildNodes(); //get the AffectedVehicleJourney Objects
+
+                        for (int l = 0; l < affectedJourneyNodeList.getLength(); l++) {
+                            Node affectedJourneyNode = affectedJourneyNodeList.item(l);
+                            NodeList affectedJourneyChildNodes = affectedJourneyNode.getChildNodes(); //get the individual tags of the AffectedVehicleJourney
+                            SubwayStatusResponse.SubwayStatus.AffectedTrip affectedTrip = new SubwayStatusResponse.SubwayStatus.AffectedTrip();
+
+                            for (int u = 0; u < affectedJourneyChildNodes.getLength(); u++) {
+                                Node affectedJourneyInfoNode = affectedJourneyChildNodes.item(u);
+                                String affectedJourneyInfoNodeValue = affectedJourneyInfoNode.getTextContent();
+                                switch (affectedJourneyInfoNode.getNodeName()) {
+                                    case "LineRef":
+                                        affectedTrip.setRouteId(affectedJourneyInfoNodeValue);
+                                        break;
+                                    case "DirectionRef":
+                                        affectedTrip.setDirection("1".equals(affectedJourneyInfoNodeValue) ? Trip.Direction.SOUTH : Trip.Direction.NORTH);
+                                }
+                            }
+                            if (StringUtils.isNotEmpty(affectedTrip.getRouteId())) {
+                                affectedTrip.setRouteId(affectedTrip.getRouteId().replace("\n", "").trim());
+                                affectedTrips.add(affectedTrip);
+                            }
+                        }
+                    }
+                    status.setAffectedTrips(affectedTrips);
+                    break;
+            }
+        }
+        return status;
+    };
 
     @PostConstruct
     public void init() {
@@ -158,5 +224,36 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayDao {
                     Double.parseDouble(r.get(GTFS_LATITUDE)),
                     Double.parseDouble(r.get(GTFS_LONGITUDE))
                 )).collect(Collectors.toList());
+    }
+
+    @Override
+    public SubwayStatusResponse getSubwayStatus() {
+        try {
+            SubwayStatusResponse statusResponse = new SubwayStatusResponse();
+            List<SubwayStatusResponse.SubwayStatus> subwayStatusList = new ArrayList<>();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document subwayStatusDoc = builder.parse(new URL(MTA_SUBWAY_STATUS_URL).openStream());
+
+            NodeList responseTimestampNodes = subwayStatusDoc.getDocumentElement().getElementsByTagName("ResponseTimestamp");
+            for (int i = 0; i < responseTimestampNodes.getLength(); i++) {
+                Node responseTimeNode = responseTimestampNodes.item(i);
+                if ("ResponseTimestamp".equals(responseTimeNode.getNodeName())) {
+                    statusResponse.setLastUpdated(responseTimeNode.getTextContent());
+                    break;
+                }
+            }
+
+            NodeList situationNodeList = subwayStatusDoc.getDocumentElement().getElementsByTagName("PtSituationElement");
+            for (int i = 0; i < situationNodeList.getLength(); i++) {
+                Node situationNode = situationNodeList.item(i);
+                subwayStatusList.add(mapSituationNodeToSubwayStatus.apply(situationNode));
+            }
+            statusResponse.setSubwayStatusList(subwayStatusList);
+
+            return statusResponse;
+        } catch (Exception e) {
+           throw new RuntimeException("Unable to fetch Subway Status", e);
+        }
     }
 }

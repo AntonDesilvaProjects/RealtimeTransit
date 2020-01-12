@@ -5,10 +5,15 @@ import com.transit.dao.MTASubwayDao;
 import com.transit.domain.mta.subway.*;
 import com.transit.service.MTASubwayService;
 import com.transit.utils.GeoUtils;
+import jdk.internal.org.xml.sax.helpers.DefaultHandler;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import java.util.*;
 
 import java.util.function.Predicate;
@@ -100,5 +105,10 @@ public class MTASubwayServiceImpl implements MTASubwayService {
     @Override
     public List<SubwayStation> getSubwayStations() {
         return mtaSubwayDao.getSubwayStations();
+    }
+
+    @Override
+    public SubwayStatusResponse getSubwayStatus() {
+      return mtaSubwayDao.getSubwayStatus();
     }
 }

@@ -1,6 +1,7 @@
 package com.transit.rest;
 
 import com.transit.domain.mta.subway.SubwayStation;
+import com.transit.domain.mta.subway.SubwayStatusResponse;
 import com.transit.service.MTASubwayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,4 +20,7 @@ public class MTASubwayController {
     public List<SubwayStation> getStations() {
         return subwayService.getSubwayStations();
     }
+
+    @GetMapping("/status")
+    public SubwayStatusResponse getStatus() { return subwayService.getSubwayStatus();}
 }
