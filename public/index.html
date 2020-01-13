@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>RealTimeMTA</title>
+        <style>
+        	table, th, td {
+			  border: 1px solid black;
+			  border-collapse: collapse;
+			  padding: 5px;
+			  text-align: center; 
+			}
+        </style>
+    </head>
+    <body>
+    	<div id="nearbyTrips">
+    	</div>
+
+        <script>
+        	const LIST_TRIPS_URL = '/transit/mta/subway/trips/list?';
+            const getLocation = () => {
+            	return new Promise((resolve, reject) => {
+            		if (navigator.geolocation) {
+                    	navigator.geolocation.getCurrentPosition(
+                    		position => resolve(position),
+                    		error => reject(error));
+                	} else {
+                		reject('Location services not available!')
+                	}
+            	});
+            };
+
+
+
+            const displayArrivalTimes = nearbyTrips => {
+            	console.log(nearbyTrips);
+            	
+            	let rows = '';
+            	nearbyTrips.forEach(trip => {
+            		if (trip.tripUpdates) {
+            			const matchedTripUpdate = trip.tripUpdates.filter(tripUpdate => tripUpdate.matchedSearch)[0];
+	            		rows += `<tr>
+	            			<td>${trip.routeId}</td>
+	            			<td>${trip.destination}</td>
+	            			<td>${matchedTripUpdate.subwayStation.name}</td>
+	            			<td>${new Date(matchedTripUpdate.arrivalTime)}</td>
+	            			<td>${Math.ceil(matchedTripUpdate.arrivingIn / (1000*60))}</td>
+	            		</tr>`
+            		}
+            	});
+
+            	const tbl_markup = `<table>
+            		<tr>
+            			<th>Line</th>
+            			<th>Destination</th>
+            			<th>Nearby Station</th>
+            			<th>Arrival Time</th>
+            			<th>Arriving In(min)</th>
+            		</tr>
+            		${rows}
+            	</table>`;
+
+            	document.querySelector('#nearbyTrips').insertAdjacentHTML('afterbegin', tbl_markup);
+            };
+
+            const getNearbyTrainTrips = () => {
+            	getLocation()
+            		.then(position => { return { latitude: position.coords.latitude, longitude: position.coords.longitude} }, error => console.log(error))
+            		.then(position => {
+            				let searchParams = new URLSearchParams({
+    							latitude: position.latitude,
+    							longitude: position.longitude,
+    							sortBy: 'arrival_time:asc'
+							});
+							return fetch(LIST_TRIPS_URL + searchParams);
+            		})
+            		.then(response => response.json())
+            		.then(displayArrivalTimes);
+            }
+
+            getNearbyTrainTrips();
+        </script>
+    </body>
+</html>
