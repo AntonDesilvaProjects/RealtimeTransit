@@ -55,3 +55,13 @@ n
 >src/main/java/com/transit/domain/mta/bus/MetaDataResponse.java,1\5\15efbdce9aac5f832676606b291f1220c2ae398d
 j
 :src/main/java/com/transit/domain/mta/bus/StopResponse.java,4\c\4cde6aaf767ec3a0fc81439d9c15e5c49c40ae8a
+u
+Esrc/main/java/com/transit/domain/mta/bus/MonitoredVehicleJourney.java,3\2\32cdbfd09d99a71f1dcde57083ee931bfdc73638
+j
+:src/main/java/com/transit/domain/mta/bus/SiriResponse.java,2\e\2e74f485249ab5b91fbc4fb644558c11f61635cf
+g
+7src/main/java/com/transit/domain/mta/bus/Situation.java,a\0\a0f3bb0a5d521152358ccc6dc192afc8b9be56af
+u
+Esrc/main/java/com/transit/domain/mta/subway/SubwayStatusResponse.java,3\1\31713fc391ca05ee015fc5e0128b0d0ef831d849
+A
+public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b

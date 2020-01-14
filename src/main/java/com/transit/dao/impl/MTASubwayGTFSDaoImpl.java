@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.nio.charset.Charset;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
@@ -212,7 +213,10 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayDao {
     }
 
     private List<SubwayStation> fetchSubwayStations() throws IOException {
-        return CSVParser.parse(new URL(MTA_SUBWAY_STATIONS_URL), Charset.defaultCharset(),  CSVFormat.EXCEL.withFirstRecordAsHeader())
+        URL url = new URL(MTA_SUBWAY_STATIONS_URL);
+        URLConnection connection = url.openConnection();
+        connection.addRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)");
+        return CSVParser.parse(connection.getInputStream(), Charset.defaultCharset(),  CSVFormat.EXCEL.withFirstRecordAsHeader())
                 .getRecords()
                 .stream()
                 .map(r -> new SubwayStation(
@@ -233,7 +237,10 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayDao {
             List<SubwayStatusResponse.SubwayStatus> subwayStatusList = new ArrayList<>();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            Document subwayStatusDoc = builder.parse(new URL(MTA_SUBWAY_STATUS_URL).openStream());
+            URL url = new URL(MTA_SUBWAY_STATUS_URL);
+            URLConnection connection = url.openConnection();
+            connection.addRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)");
+            Document subwayStatusDoc = builder.parse(connection.getInputStream());
 
             NodeList responseTimestampNodes = subwayStatusDoc.getDocumentElement().getElementsByTagName("ResponseTimestamp");
             for (int i = 0; i < responseTimestampNodes.getLength(); i++) {
