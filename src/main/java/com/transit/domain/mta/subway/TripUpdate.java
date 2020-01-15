@@ -9,12 +9,16 @@ public class TripUpdate {
     private long arrivingIn;
     private boolean isMatchedSearch = false;
 
+    //these fields will be populated only if sorting is active
+    private Double distance;
+
     public static class builder {
         private SubwayStation subwayStation;
         private long arrivalTime;
         private long departureTime;
         private String scheduledTrack;
         private String actualTrack;
+        private Double distance;
 
         public builder forSubwayStation(SubwayStation subwayStation) {
             this.subwayStation = subwayStation;
@@ -36,6 +40,10 @@ public class TripUpdate {
             this.actualTrack = actualTrack;
             return this;
         }
+        public builder withDistanceOf(Double distance) {
+            this.distance = distance;
+            return this;
+        }
         public TripUpdate build() {
            TripUpdate tripUpdate = new TripUpdate();
            tripUpdate.setSubwayStation(this.subwayStation);
@@ -44,6 +52,7 @@ public class TripUpdate {
            tripUpdate.setScheduledTrack(this.scheduledTrack);
            tripUpdate.setActualTrack(this.actualTrack);
            tripUpdate.setDepartureTime(this.departureTime);
+           tripUpdate.setDistance(this.distance);
            tripUpdate.setArrivingIn(this.arrivalTime - System.currentTimeMillis());
            return tripUpdate;
         }
@@ -110,5 +119,14 @@ public class TripUpdate {
     public boolean setMatchedSearch(boolean matchedSearch) {
         isMatchedSearch = matchedSearch;
         return isMatchedSearch;
+    }
+
+    public Double getDistance() {
+        return distance;
+    }
+
+    public TripUpdate setDistance(Double distance) {
+        this.distance = distance;
+        return this;
     }
 }

@@ -8,7 +8,11 @@ import com.transit.utils.GeoUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
 
 import java.util.function.Predicate;
@@ -84,17 +88,42 @@ public class MTASubwayServiceImpl implements MTASubwayService {
             }
             //get a list of trip updates which has the searched stations(either via direct station id or geographic location)
             //also mark the trip update that matched the search
-                return trip.getTripUpdates()
+            //note that we are not short-circuiting
+            return trip.getTripUpdates()
                     .stream()
                     .filter(tripUpdate -> !listParams.includesStopIds() || listParams.getGtfsStopIds().contains(tripUpdate.getSubwayStation().getGtfsStopId()))
                     .filter(tripUpdate -> !listParams.isLocationSearch() || GeoUtils.isWithinRadius(tripUpdate.getSubwayStation().getGtfsLatitude(), tripUpdate.getSubwayStation().getGetGtfsLongitude(), listParams.getLatitude(), listParams.getLongitude(), listParams.getSearchRadius()))
-                    .anyMatch(tripUpdate -> tripUpdate.setMatchedSearch(!listParams.isTimeSearch() || tripUpdate.getArrivalTime() - System.currentTimeMillis() <= listParams.getArrivingIn()));
+                    .filter(tripUpdate -> tripUpdate.setMatchedSearch(!listParams.isTimeSearch() || tripUpdate.getArrivalTime() - System.currentTimeMillis() <= listParams.getArrivingIn())).count() > 0;
         };
         Stream<Trip> filteredTripStream = feeds
                 .parallelStream()
                 .flatMap(feedId -> getTripsForFeed(feedId).stream())
+                .peek(trip -> {
+                        if (listParams.isLocationSearch() && !CollectionUtils.isEmpty(trip.getTripUpdates())) {
+                            trip.getTripUpdates().forEach(tripUpdate -> tripUpdate.setDistance(GeoUtils.distance(
+                                    tripUpdate.getSubwayStation().getGtfsLatitude(),
+                                    listParams.getLatitude(),
+                                    tripUpdate.getSubwayStation().getGetGtfsLongitude(),
+                                    listParams.getLongitude())));
+                        }
+                })
                 .filter(routeFilter.and(tripIdFilter).and(stationFilter).and(directionFilter));
-        return listParams.buildSorter().map(filteredTripStream::sorted).orElse(filteredTripStream).collect(Collectors.toList());
+
+       return listParams.buildSorter().map(filteredTripStream::sorted).orElse(filteredTripStream).collect(Collectors.toList());
+//       t.forEach(trip -> {
+//           if (trip.getDirection() == Trip.Direction.SOUTH && trip.getRouteId().equalsIgnoreCase("E")
+//                   && trip.getTripUpdates().stream().anyMatch(u -> u.getSubwayStation().getGtfsStopId().equalsIgnoreCase("F06")) ) {
+//               TripUpdate k = trip.getTripUpdates().stream().filter(u -> u.getSubwayStation().getGtfsStopId().equalsIgnoreCase("F06")).findFirst().get();
+//               System.out.println(trip.getRouteId() + "/" + k.getSubwayStation().getName() + "/" + trip.getDestination() + "/" + time(k.getArrivalTime()));
+//           }
+//       });
+      // return t;
+    }
+
+    public static String time(long t) {
+        Instant instant = Instant.ofEpochMilli(t);
+        LocalDateTime date = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
+        return date.toString();
     }
 
     @Override

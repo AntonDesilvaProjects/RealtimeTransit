@@ -4,8 +4,10 @@ import com.transit.dao.MTASubwayDao;
 import com.transit.dao.impl.MTASubwayGTFSDaoImpl;
 import com.transit.domain.mta.subway.*;
 import com.transit.service.MTASubwayService;
+import com.transit.utils.GeoUtils;
 import org.junit.Test;
 import org.mockito.Mockito;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -264,6 +266,15 @@ public class MTASubwayServiceImplTest {
             assertEquals(correctOrder.get(i), sortedTrips.get(i).getRouteId());
         }
 
+        tripList.stream().forEach(trip -> {
+            if (!CollectionUtils.isEmpty(trip.getTripUpdates())) {
+                trip.getTripUpdates().forEach(tripUpdate -> tripUpdate.setDistance(GeoUtils.distance(
+                        tripUpdate.getSubwayStation().getGtfsLatitude(),
+                        40.7029319,
+                        tripUpdate.getSubwayStation().getGetGtfsLongitude(),
+                        -73.8258626)));
+            }});
+
         listParams = new SubwayTripListParams
                 .Builder()
                 .withLatitudeLongitude(40.7029319, -73.8258626)
@@ -463,6 +474,15 @@ public class MTASubwayServiceImplTest {
                 .sortedBy(Sorting.Field.ROUTE, Sorting.Order.ASCENDING)
                 .sortedBy(Sorting.Field.DISTANCE, Sorting.Order.ASCENDING)
                 .sortedBy(Sorting.Field.ARRIVAL_TIME, Sorting.Order.ASCENDING).build();
+
+        tripList.stream().forEach(trip -> {
+            if (!CollectionUtils.isEmpty(trip.getTripUpdates())) {
+                trip.getTripUpdates().forEach(tripUpdate -> tripUpdate.setDistance(GeoUtils.distance(
+                        tripUpdate.getSubwayStation().getGtfsLatitude(),
+                        40.7029319,
+                        tripUpdate.getSubwayStation().getGetGtfsLongitude(),
+                        -73.8258626)));
+            }});
         List<Trip> sortedTrips = listParams.buildSorter().map(tripList.stream()::sorted).orElse(tripList.stream()).collect(Collectors.toList());
         List<String> correctOrder = Arrays.asList("trip_id_1", "trip_id_2", "trip_id_2_2", "trip_id_J", "trip_id_Z_2", "trip_id_Z" );
         for (int i = 0; i < correctOrder.size(); i++) {
@@ -477,6 +497,7 @@ public class MTASubwayServiceImplTest {
                 .sortedBy(Sorting.Field.ROUTE, Sorting.Order.DESCENDING)
                 .sortedBy(Sorting.Field.DISTANCE, Sorting.Order.DESCENDING)
                 .sortedBy(Sorting.Field.ARRIVAL_TIME, Sorting.Order.ASCENDING).build();
+
         sortedTrips = listParams.buildSorter().map(tripList.stream()::sorted).orElse(tripList.stream()).collect(Collectors.toList());
         correctOrder = Arrays.asList("trip_id_Z_2", "trip_id_Z", "trip_id_J", "trip_id_2_2", "trip_id_2", "trip_id_1");
         for (int i = 0; i < correctOrder.size(); i++) {

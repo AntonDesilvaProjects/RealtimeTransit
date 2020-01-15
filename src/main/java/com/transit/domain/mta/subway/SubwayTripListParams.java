@@ -45,19 +45,9 @@ public class SubwayTripListParams {
     private final Comparator<Trip> DISTANCE_SORTER = (trip1, trip2) -> {
         //find the TripUpdate with the smallest distance for each trip
         double trip1SmallestDistance = trip1.getTripUpdates().stream().filter(TripUpdate::isMatchedSearch)
-                .map(tripUpdate -> GeoUtils.distance(
-                        tripUpdate.getSubwayStation().getGtfsLatitude(),
-                        this.getLatitude(),
-                        tripUpdate.getSubwayStation().getGetGtfsLongitude(),
-                        this.getLongitude())
-                ).min(Double::compare).orElse(Double.MAX_VALUE);
+                .map(TripUpdate::getDistance).min(Double::compare).orElse(Double.MAX_VALUE);
         double trip2SmallestDistance = trip2.getTripUpdates().stream().filter(TripUpdate::isMatchedSearch)
-                .map(tripUpdate -> GeoUtils.distance(
-                        tripUpdate.getSubwayStation().getGtfsLatitude(),
-                        this.getLatitude(),
-                        tripUpdate.getSubwayStation().getGetGtfsLongitude(),
-                        this.getLongitude())
-                ).min(Double::compare).orElse(Double.MAX_VALUE);
+                .map(TripUpdate::getDistance).min(Double::compare).orElse(Double.MAX_VALUE);
 
         return Double.compare(trip1SmallestDistance, trip2SmallestDistance);
     };
@@ -65,7 +55,7 @@ public class SubwayTripListParams {
     private final Comparator<Trip> TIME_SORTER = (trip1, trip2) -> {
         //find the TripUpdate with the shortest time for each trip
         long trip1ShortestTime = trip1.getTripUpdates().stream().filter(TripUpdate::isMatchedSearch).map(TripUpdate::getArrivingIn).min(Long::compare).orElse(Long.MAX_VALUE);
-        long trip2ShortestTime =trip2.getTripUpdates().stream().filter(TripUpdate::isMatchedSearch).map(TripUpdate::getArrivingIn).min(Long::compare).orElse(Long.MAX_VALUE);
+        long trip2ShortestTime = trip2.getTripUpdates().stream().filter(TripUpdate::isMatchedSearch).map(TripUpdate::getArrivingIn).min(Long::compare).orElse(Long.MAX_VALUE);
         return Long.compare(trip1ShortestTime, trip2ShortestTime);
     };
     
