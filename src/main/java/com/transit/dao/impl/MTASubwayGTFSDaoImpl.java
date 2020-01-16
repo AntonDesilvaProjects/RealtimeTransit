@@ -217,15 +217,13 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayDao {
         InputStream inputStream = null;
         //try to load the data from the server; if not available, get from disk
         try {
-            URL url = new URL(MTA_SUBWAY_STATIONS_URL + "K");
+            URL url = new URL(MTA_SUBWAY_STATIONS_URL);
             URLConnection connection = url.openConnection();
             connection.addRequestProperty("User-Agent", TransitConstants.USER_AGENT_STRING);
             inputStream = connection.getInputStream();
         } catch (IOException e) {
             inputStream = MTASubwayGTFSDaoImpl.class.getResourceAsStream("/metadata/Stations.csv");
         }
-        System.out.println("loading from file");
-        inputStream = MTASubwayGTFSDaoImpl.class.getResourceAsStream("/metadata/Stations.csv");
         return CSVParser.parse(inputStream, Charset.defaultCharset(),  CSVFormat.EXCEL.withFirstRecordAsHeader())
                 .getRecords()
                 .stream()

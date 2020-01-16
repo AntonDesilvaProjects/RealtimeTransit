@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cf8edcb-2cae-4b3e-8339-5a8737b2abd8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -75,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="217" column="79" selection-start-line="217" selection-start-column="79" selection-end-line="217" selection-end-column="79" />
+            <state relative-caret-position="362">
+              <caret line="226" column="48" selection-start-line="226" selection-start-column="48" selection-end-line="226" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -579,7 +576,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19616205" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -593,11 +589,11 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.53304905" weight="0.42333335" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49520257" visible="true" weight="0.24" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49520257" weight="0.43666667" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.4077778" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.4077778" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.46695095" side_tool="true" weight="0.5888889" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48933902" />
@@ -1201,8 +1197,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="217" column="79" selection-start-line="217" selection-start-column="79" selection-end-line="217" selection-end-column="79" />
+        <state relative-caret-position="362">
+          <caret line="226" column="48" selection-start-line="226" selection-start-column="48" selection-end-line="226" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
