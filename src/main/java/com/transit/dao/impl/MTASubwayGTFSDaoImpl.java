@@ -22,6 +22,7 @@ import javax.annotation.PostConstruct;
 import javax.xml.parsers.*;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -213,10 +214,18 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayDao {
     }
 
     private List<SubwayStation> fetchSubwayStations() throws IOException {
-        URL url = new URL(MTA_SUBWAY_STATIONS_URL);
-        URLConnection connection = url.openConnection();
-        connection.addRequestProperty("User-Agent", TransitConstants.USER_AGENT_STRING);
-        return CSVParser.parse(url, Charset.defaultCharset(),  CSVFormat.EXCEL.withFirstRecordAsHeader())
+        InputStream inputStream = null;
+        //try to load the data from the server; if not available, get from disk
+        try {
+            URL url = new URL(MTA_SUBWAY_STATIONS_URL + "K");
+            URLConnection connection = url.openConnection();
+            connection.addRequestProperty("User-Agent", TransitConstants.USER_AGENT_STRING);
+            inputStream = connection.getInputStream();
+        } catch (IOException e) {
+            inputStream = MTASubwayGTFSDaoImpl.class.getResourceAsStream("/metadata/Stations.csv");
+        }
+        inputStream = MTASubwayGTFSDaoImpl.class.getResourceAsStream("/metadata/Stations.csv");
+        return CSVParser.parse(inputStream, Charset.defaultCharset(),  CSVFormat.EXCEL.withFirstRecordAsHeader())
                 .getRecords()
                 .stream()
                 .map(r -> new SubwayStation(
@@ -238,7 +247,7 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayDao {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             URL url = new URL(MTA_SUBWAY_STATUS_URL);
-            URLConnection connection = url.openConnection();
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.addRequestProperty("User-Agent", TransitConstants.USER_AGENT_STRING);
             Document subwayStatusDoc = builder.parse(connection.getInputStream());
 

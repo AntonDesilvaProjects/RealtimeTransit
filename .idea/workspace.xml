@@ -6,10 +6,6 @@
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/SubwayTripListParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/SubwayTripListParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/TripUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/TripUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTASubwayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTASubwayServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/transit/service/impl/MTASubwayServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/transit/service/impl/MTASubwayServiceImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,59 +21,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/rest/MTASubwayTripController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-              <folding>
-                <element signature="e#684#685#0" expanded="true" />
-                <element signature="e#731#732#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/SubwayTripListParams.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="46" selection-start-line="46" selection-end-line="46" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/Trip.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-502">
-              <caret line="56" column="23" lean-forward="true" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/TripUpdate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="752">
-              <caret line="54" column="49" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
-              <folding>
-                <element signature="e#3590#3591#0" expanded="true" />
-                <element signature="e#3621#3622#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,15 +50,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTASubwayServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-72">
-              <caret line="101" column="66" selection-start-line="101" selection-start-column="66" selection-end-line="101" selection-end-column="66" />
+            <state relative-caret-position="220">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#6725#6726#0" expanded="true" />
-                <element signature="e#6843#6844#0" expanded="true" />
+                <element signature="e#6661#6662#0" expanded="true" />
+                <element signature="e#6779#6780#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,14 +72,41 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="145" selection-start-line="145" selection-end-line="145" />
+            <state relative-caret-position="182">
+              <caret line="217" column="79" selection-start-line="217" selection-start-column="79" selection-end-line="217" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-csv/1.5/commons-csv-1.5.jar!/org/apache/commons/csv/CSVParser.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="763">
+              <caret line="66" column="28" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="38" column="64" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" column="76" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -193,12 +168,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTABusServiceDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/public/index.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/TripUpdate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/SubwayTripListParams.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/transit/service/impl/MTASubwayServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTASubwayServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java" />
       </list>
     </option>
   </component>
@@ -334,6 +309,21 @@
               <item name="realtimemta" type="b2602c69:ProjectViewProjectNode" />
               <item name="realtimemta" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="realtimemta" type="b2602c69:ProjectViewProjectNode" />
+              <item name="realtimemta" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="metadata" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="realtimemta" type="b2602c69:ProjectViewProjectNode" />
+              <item name="realtimemta" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -373,18 +363,19 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.transit.service.impl" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Anton\IdeaProjects\realtimemta" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.transit.service" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
     </key>
     <key name="CreateBuilderDialog.RecentsKey">
       <recent name="com.transit.domain.mta.bus" />
       <recent name="com.transit.domain.mta" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anton\IdeaProjects\realtimemta\src\main\resources\metadata" />
+      <recent name="C:\Users\Anton\IdeaProjects\realtimemta" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -601,8 +592,8 @@
       <window_info id="Job Explorer" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.53304905" visible="true" weight="0.42333335" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49520257" weight="0.24" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.53304905" weight="0.42333335" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49520257" visible="true" weight="0.24" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -678,12 +669,6 @@
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/SubwayTripListParams.java</url>
-          <line>46</line>
-          <properties />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -706,20 +691,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="217" selection-start-line="217" selection-end-line="217" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE-sources.jar!/org/springframework/web/client/HttpStatusCodeException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE-sources.jar!/org/springframework/web/client/RestClientException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -1102,13 +1073,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="38" column="104" selection-start-line="38" selection-start-column="104" selection-end-line="38" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/Sorting.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1120,23 +1084,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="145" selection-start-line="145" selection-end-line="145" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1196,6 +1143,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/transit/service/impl/MTASubwayServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="275" column="16" selection-start-line="275" selection-start-column="16" selection-end-line="275" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTASubwayServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#6661#6662#0" expanded="true" />
+            <element signature="e#6779#6780#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/domain/mta/subway/SubwayTripListParams.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1206,21 +1171,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/transit/service/impl/MTASubwayServiceImplTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/TransitConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="275" column="16" selection-start-line="275" selection-start-column="16" selection-end-line="275" selection-end-column="16" />
+        <state relative-caret-position="331">
+          <caret line="38" column="64" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/service/impl/MTASubwayServiceImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-csv/1.5/commons-csv-1.5.jar!/org/apache/commons/csv/CSVParser.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72">
-          <caret line="101" column="66" selection-start-line="101" selection-start-column="66" selection-end-line="101" selection-end-column="66" />
+        <state relative-caret-position="763">
+          <caret line="66" column="28" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="76" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_11/src.zip!/java/net/URLConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1218">
+          <caret line="828" column="23" selection-start-line="828" selection-start-column="23" selection-end-line="828" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/transit/dao/impl/MTASubwayGTFSDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="217" column="79" selection-start-line="217" selection-start-column="79" selection-end-line="217" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6725#6726#0" expanded="true" />
-            <element signature="e#6843#6844#0" expanded="true" />
           </folding>
         </state>
       </provider>

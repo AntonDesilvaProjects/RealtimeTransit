@@ -36,5 +36,5 @@ public class TransitConstants {
 
     public static final String LONG_MIN_VALUE_STRING = "" + Long.MIN_VALUE;
     public static final String DOUBLE_MIN_VALUE_STRING = "" + Double.MIN_VALUE;
-    public static final String USER_AGENT_STRING = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)";
+    public static final String USER_AGENT_STRING = "Mozilla/4.76";
 }
