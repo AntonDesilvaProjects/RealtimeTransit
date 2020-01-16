@@ -114,9 +114,6 @@
             }
 
             getNearbyTrainTrips();
-
-            fetch('http://web.mta.info/status/ServiceStatusSubway.xml').then(response => response.text()).then(text => (new window.DOMParser()).parseFromString(str, "text/xml"))
-        .then(data => console.log(data));
         </script>
     </body>
 </html>
