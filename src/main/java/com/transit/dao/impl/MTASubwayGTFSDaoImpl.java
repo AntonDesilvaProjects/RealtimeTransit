@@ -224,6 +224,7 @@ public class MTASubwayGTFSDaoImpl implements MTASubwayDao {
         } catch (IOException e) {
             inputStream = MTASubwayGTFSDaoImpl.class.getResourceAsStream("/metadata/Stations.csv");
         }
+        System.out.println("loading from file");
         inputStream = MTASubwayGTFSDaoImpl.class.getResourceAsStream("/metadata/Stations.csv");
         return CSVParser.parse(inputStream, Charset.defaultCharset(),  CSVFormat.EXCEL.withFirstRecordAsHeader())
                 .getRecords()
