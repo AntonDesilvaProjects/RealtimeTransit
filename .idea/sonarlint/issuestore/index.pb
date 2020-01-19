@@ -65,3 +65,5 @@ u
 Esrc/main/java/com/transit/domain/mta/subway/SubwayStatusResponse.java,3\1\31713fc391ca05ee015fc5e0128b0d0ef831d849
 A
 public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b
+_
+/src/main/java/com/transit/TransitConstants.java,8\c\8c67a61891edf4040e6d73624af93f1b0e2196d7

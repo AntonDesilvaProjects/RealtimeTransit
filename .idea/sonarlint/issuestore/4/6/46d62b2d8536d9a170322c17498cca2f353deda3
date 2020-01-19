@@ -1,3 +1,4 @@
 
-zsquid:S00116A"VRename this field "TIME_SORTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø†Îüşÿÿÿÿ8ÙÊáŸõ-
+zsquid:S001167"VRename this field "TIME_SORTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø†Îüşÿÿÿÿ8ÙÊáŸõ-
+bsquid:UselessImportCheck"7Remove this unused import 'com.transit.utils.GeoUtils'.(¼ñÊ…8ª»ğ·ú-
 ~squid:S00116-"ZRename this field "DISTANCE_SORTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÇÂŠÿÿÿÿÿ8ÙÊáŸõ-
