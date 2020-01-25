@@ -2,10 +2,13 @@
 	<head>
 		<title>Subway-Mobile</title>
 		<style>
-			.stop-info { 
+			.stop {
 				width: 650px;
-				height: 200px;
-				border-style: ridge;
+				min-height: 200px;
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+				margin-bottom: 10px;
+			}
+			.stop-info { 
 				display: flex;
 				padding: 15;
             } 
@@ -43,92 +46,638 @@
 			.time {
 				float: right;
 			}
+			.additional-info {
+				/*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+				padding: 0 18px;
+			  	max-height: 0;
+			 	overflow: hidden;
+			  	transition: max-height 0.2s ease-out;
+			  	/*background-color: #f1f1f1;*/
+			  	display: none;
+			  	padding: 0.7em;
+			}
+
+			.main-page {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+  				align-items: center;
+  				overflow-y: auto;
+			}
+
+			.search-bar {
+				flex : 1;
+				display: flex;
+				/*padding: 0 500 25 500;*/
+			}
+
+			.search-box {
+				flex: 3;
+				line-height: 2em;
+				font-size: 22px;
+				margin-right: 10;
+			}
+
+			.search-results {
+				flex: 4;
+				overflow-y: auto;
+				align-content: center;
+				display: flex;
+				flex-direction: column;
+				max-height: 90vh;
+			}
+
+			.search-results-grid {
+			    overflow-y: auto;
+			}
+
+			.trip-grid td {
+				 border-bottom:1pt solid black;
+			}
+
+			.route-trips div {
+				margin-bottom: 0.5em;
+			}
+
 		</style>
 	</head>
 	<body>
-		<div class="stop-info">
-			<div class="stop-name">
-				<span>Forest Hills - 71 Ave Continental</span>
+
+		<div class="main-page">
+
+			<div class="search-bar">
+				<input type="text" class="search-box"></input>
+				<button>Geolocate</button>
 			</div>
-			<div class="stop-updates">
-				<table class="trip-grid">
+
+
+
+			<div class="search-results">
+				<label>Nearby Stops</label>
+				<div class="search-results-grid">
+				<table>
 					<tr>
 						<td>
-							<div class="route">
-								<div class="route-name">J</div>
-								<div class="route-trips">
+							<div class="stop">
+								<div class="stop-info">
+									<div class="stop-name">
+										<span>Forest Hills - 71 Ave Continental</span>
+									</div>
+									<div class="stop-updates">
+										<table class="trip-grid">
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">J</div>
+														<div class="route-trips">
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Jamaica Center</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">F</div>
+														<div class="route-trips">
+															<div>
+																<span>Jamaica - 179</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Jay Street Metro...</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">E</div>
+														<div class="route-trips">
+															<div>
+																<span>World Trade Center</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">F</div>
+														<div class="route-trips">
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="additional-info">
 									<div>
-										<span>Broad Street</span>
-										<span class="time">4(7, 11) min</span>
+										F train - status: good
 									</div>
 									<div>
-										<span>Jamaica Center</span>
-										<span class="time">4(7, 11) min</span>
+										Additional Arrival Times
 									</div>
 								</div>
 							</div>
 						</td>
 					</tr>
 
-					<tr>
-						<td>
-							<div class="route">
-								<div class="route-name">F</div>
-								<div class="route-trips">
-									<div>
-										<span>Jamaica - 179</span>
-										<span class="time">4(7, 11) min</span>
-									</div>
-									<div>
-										<span>Jay Street Metro...</span>
-										<span class="time">4(7, 11) min</span>
-									</div>
-								</div>
-							</div>
-						</td>
-					</tr>
 
 					<tr>
 						<td>
-							<div class="route">
-								<div class="route-name">E</div>
-								<div class="route-trips">
+							<div class="stop">
+								<div class="stop-info">
+									<div class="stop-name">
+										<span>Forest Hills - 71 Ave Continental</span>
+									</div>
+									<div class="stop-updates">
+										<table class="trip-grid">
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">J</div>
+														<div class="route-trips">
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Jamaica Center</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">F</div>
+														<div class="route-trips">
+															<div>
+																<span>Jamaica - 179</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Jay Street Metro...</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">E</div>
+														<div class="route-trips">
+															<div>
+																<span>World Trade Center</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">F</div>
+														<div class="route-trips">
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="additional-info">
 									<div>
-										<span>World Trade Center</span>
-										<span class="time">4(7, 11) min</span>
+										F train - status: good
 									</div>
 									<div>
-										<span>Broad Street</span>
-										<span class="time">4(7, 11) min</span>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
 									</div>
 								</div>
 							</div>
+							
 						</td>
 					</tr>
 
+
+
 					<tr>
 						<td>
-							<div class="route">
-								<div class="route-name">F</div>
-								<div class="route-trips">
+							<div class="stop">
+								<div class="stop-info">
+									<div class="stop-name">
+										<span>Forest Hills - 71 Ave Continental</span>
+									</div>
+									<div class="stop-updates">
+										<table class="trip-grid">
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">J</div>
+														<div class="route-trips">
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Jamaica Center</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">F</div>
+														<div class="route-trips">
+															<div>
+																<span>Jamaica - 179</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Jay Street Metro...</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">E</div>
+														<div class="route-trips">
+															<div>
+																<span>World Trade Center</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">F</div>
+														<div class="route-trips">
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="additional-info">
 									<div>
-										<span>Broad Street</span>
-										<span class="time">4(7, 11) min</span>
+										F train - status: good
 									</div>
 									<div>
-										<span>Broad Street</span>
-										<span class="time">4(7, 11) min</span>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
 									</div>
 								</div>
 							</div>
+							
 						</td>
 					</tr>
+
+
+					<tr>
+						<td>
+							<div class="stop">
+								<div class="stop-info">
+									<div class="stop-name">
+										<span>Forest Hills - 71 Ave Continental</span>
+									</div>
+									<div class="stop-updates">
+										<table class="trip-grid">
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">J</div>
+														<div class="route-trips">
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Jamaica Center</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">F</div>
+														<div class="route-trips">
+															<div>
+																<span>Jamaica - 179</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Jay Street Metro...</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">E</div>
+														<div class="route-trips">
+															<div>
+																<span>World Trade Center</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">F</div>
+														<div class="route-trips">
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="additional-info">
+									<div>
+										F train - status: good
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+								</div>
+							</div>
+							
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>
+							<div class="stop">
+								<div class="stop-info">
+									<div class="stop-name">
+										<span>Forest Hills - 71 Ave Continental</span>
+									</div>
+									<div class="stop-updates">
+										<table class="trip-grid">
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">J</div>
+														<div class="route-trips">
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Jamaica Center</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">F</div>
+														<div class="route-trips">
+															<div>
+																<span>Jamaica - 179</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Jay Street Metro...</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">E</div>
+														<div class="route-trips">
+															<div>
+																<span>World Trade Center</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">F</div>
+														<div class="route-trips">
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="additional-info">
+									<div>
+										F train - status: good
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+									<div>
+										Additional Arrival Times
+									</div>
+								</div>
+							</div>
+							
+						</td>
+					</tr>
+
+
 				</table>
+			</div>
 			</div>
 		</div>
 
-
+		
 		<script>
+			document.querySelector('.route-name').addEventListener('click', () => { 
+				let additionalInfo = document.querySelector('.additional-info');
+				if (additionalInfo.style.display === 'none') {
+					additionalInfo.style.display = "block"; 
+					additionalInfo.style.maxHeight =  additionalInfo.scrollHeight + "px";     
+				} else {
+					additionalInfo.style.display = "none"; 
+					additionalInfo.style.maxHeight =  0 + "px";    
+				}
+			});
 		</script>
 	</body>
 </html>
