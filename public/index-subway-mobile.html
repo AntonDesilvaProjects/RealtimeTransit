@@ -4,7 +4,7 @@
 		<style>
 			.stop {
 				width: 680px;
-				/*min-height: 200px;*/
+				min-height: 200px;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 				margin-bottom: 10px;
 			}
@@ -80,12 +80,12 @@
 			}
 
 			.search-results {
-				flex: 4;
+				/*flex: 4;*/
 				overflow-y: auto;
 				align-content: center;
 				display: flex;
 				flex-direction: column;
-				/*max-height: 90vh;*/
+				max-height: 90vh;
 			}
 
 			.search-results-grid {
@@ -127,7 +127,36 @@
 				<button>Geolocate</button>
 			</div>
 
-			
+			<div class="search-filter">
+				<select> 
+					<option value="" style="font-style: italic;">Line</option>
+					<option value="E">E</option>
+					<option value="F">F</option>
+    				<option value="J">J</option>
+    				<option value="R">R</option>
+    			</select>
+    			<select> 
+					<option value="" style="font-style: italic;">Direction</option>
+    				<option value="N">North</option>
+    				<option value="S">South</option>
+    			</select>
+				<select>
+					<option value="" style="font-style: italic;">Distance</option>
+    				<option value="0.25">0.25 mi</option>
+    				<option value="0.50">0.5 mi</option>
+    				<option value="1">1 mi</option>
+    				<option value="1.5">1.5 mi</option>
+    				<option value="2">2 mi</option>
+    				<option value="5">5 mi</option>
+				</select>
+				<select>
+					<option value="" style="font-style: italic;">Arriving in</option>
+    				<option value="0.25">1</option>
+    				<option value="0.50">5</option>
+    				<option value="1">10</option>
+    				<option value="1.5">30</option>
+				</select>			
+			</div>
 
 			<div class="search-results">
 				<div class="search-results-grid">
