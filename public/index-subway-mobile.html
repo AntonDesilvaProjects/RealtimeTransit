@@ -3,7 +3,7 @@
 		<title>Subway-Mobile</title>
 		<style>
 			.stop {
-				width: 650px;
+				width: 680px;
 				min-height: 200px;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 				margin-bottom: 10px;
@@ -99,6 +99,19 @@
 				margin-bottom: 0.5em;
 			}
 
+			.search-filter {
+				flex: 1;
+				width: 650px;
+				height: 1em;
+				padding: 0.5em;
+				display: flex;
+
+			}
+			.search-filter select {
+				flex: 1;
+				margin-left: 1em;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -106,11 +119,40 @@
 		<div class="main-page">
 
 			<div class="search-bar">
-				<input type="text" class="search-box"></input>
+				<input type="text" class="search-box" placeholder="Search for stops"></input>
 				<button>Geolocate</button>
 			</div>
 
-
+			<div class="search-filter">
+				<select> 
+					<option value="" style="font-style: italic;">Line</option>
+					<option value="E">E</option>
+					<option value="F">F</option>
+    				<option value="J">J</option>
+    				<option value="R">R</option>
+    			</select>
+    			<select> 
+					<option value="" style="font-style: italic;">Direction</option>
+    				<option value="N">North</option>
+    				<option value="S">South</option>
+    			</select>
+				<select>
+					<option value="" style="font-style: italic;">Distance</option>
+    				<option value="0.25">0.25 mi</option>
+    				<option value="0.50">0.5 mi</option>
+    				<option value="1">1 mi</option>
+    				<option value="1.5">1.5 mi</option>
+    				<option value="2">2 mi</option>
+    				<option value="5">5 mi</option>
+				</select>
+				<select>
+					<option value="" style="font-style: italic;">Arriving in</option>
+    				<option value="0.25">1</option>
+    				<option value="0.50">5</option>
+    				<option value="1">10</option>
+    				<option value="1.5">30</option>
+				</select>			
+			</div>
 
 			<div class="search-results">
 				<label>Nearby Stops</label>
@@ -196,6 +238,42 @@
 													</div>
 												</td>
 											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">F</div>
+														<div class="route-trips">
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<div class="route">
+														<div class="route-name">F</div>
+														<div class="route-trips">
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+															<div>
+																<span>Broad Street</span>
+																<span class="time">4(7, 11) min</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
 										</table>
 									</div>
 								</div>
@@ -239,59 +317,7 @@
 												</td>
 											</tr>
 
-											<tr>
-												<td>
-													<div class="route">
-														<div class="route-name">F</div>
-														<div class="route-trips">
-															<div>
-																<span>Jamaica - 179</span>
-																<span class="time">4(7, 11) min</span>
-															</div>
-															<div>
-																<span>Jay Street Metro...</span>
-																<span class="time">4(7, 11) min</span>
-															</div>
-														</div>
-													</div>
-												</td>
-											</tr>
-
-											<tr>
-												<td>
-													<div class="route">
-														<div class="route-name">E</div>
-														<div class="route-trips">
-															<div>
-																<span>World Trade Center</span>
-																<span class="time">4(7, 11) min</span>
-															</div>
-															<div>
-																<span>Broad Street</span>
-																<span class="time">4(7, 11) min</span>
-															</div>
-														</div>
-													</div>
-												</td>
-											</tr>
-
-											<tr>
-												<td>
-													<div class="route">
-														<div class="route-name">F</div>
-														<div class="route-trips">
-															<div>
-																<span>Broad Street</span>
-																<span class="time">4(7, 11) min</span>
-															</div>
-															<div>
-																<span>Broad Street</span>
-																<span class="time">4(7, 11) min</span>
-															</div>
-														</div>
-													</div>
-												</td>
-											</tr>
+											
 										</table>
 									</div>
 								</div>
