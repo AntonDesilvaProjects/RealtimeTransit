@@ -1,11 +1,11 @@
 
-psquid:S3008
-"YRename this field "ROUTE_FEED_MAP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ךֽ׳װ
-rsquid:S3008	"VRename this field "FEED_ID_MAP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ֵיאףûÿÿÿÿ
-"squid:ClassVariableVisibilityCheck	"WMake FEED_ID_MAP a static final constant or non-public and provide accessors if needed.(ֵיאףûÿÿÿÿ
-Msquid:S1444	"1Make this "public static FEED_ID_MAP" field final(ֵיאףûÿÿÿÿ
 ˆ"squid:ClassVariableVisibilityCheck
 "ZMake ROUTE_FEED_MAP a static final constant or non-public and provide accessors if needed.(ךֽ׳װ
-Vsquid:S1118":Add a private constructor to hide the implicit public one.(—׀ֶלרÿÿÿÿ
+psquid:S3008
+"YRename this field "ROUTE_FEED_MAP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ךֽ׳װ
+"squid:ClassVariableVisibilityCheck	"WMake FEED_ID_MAP a static final constant or non-public and provide accessors if needed.(ֵיאףûÿÿÿÿ
+rsquid:S3008	"VRename this field "FEED_ID_MAP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ֵיאףûÿÿÿÿ
 Ksquid:S1444
 "4Make this "public static ROUTE_FEED_MAP" field final(ךֽ׳װ
+Msquid:S1444	"1Make this "public static FEED_ID_MAP" field final(ֵיאףûÿÿÿÿ
+Vsquid:S1118":Add a private constructor to hide the implicit public one.(—׀ֶלרÿÿÿÿ

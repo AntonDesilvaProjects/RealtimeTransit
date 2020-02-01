@@ -1,29 +1,29 @@
 
-Gsquid:S1148¶"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÈÂğØù-
-}squid:S001167"YRename this field "DAYTIME_ROUTES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·‰µšùÿÿÿÿ8š™‘Îò-
-squid:S001161"bRename this field "MTA_SUBWAY_FEED_API_KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì¥èÇ8ÈÂğØù-
+?squid:S11708"!Make this final field static too.(£«×Â8©ğÎò-
+{squid:S001164"WRename this field "GTFS_STOP_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØĞ¡ûÿÿÿÿ8©ğÎò-
+?squid:S11705"!Make this final field static too.(¥æ®ö8ÕÏüö-
+>squid:S11703"!Make this final field static too.(ø­{8ÕÏüö-
 ssquid:S001165"TRename this field "STOP_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥æ®ö8©ğÎò-
 fsquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(ßÉ‘•8ÈÂğØù-
-{squid:S001164"WRename this field "GTFS_STOP_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØĞ¡ûÿÿÿÿ8©ğÎò-
-ssquid:S001163"URename this field "STATION_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø­{8‹ñ­Íò-
-Gsquid:S1148Á"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÈÂğØù-
+W"squid:SwitchLastCaseIsDefaultCheckh""Add a default case to this switch.(Ì‹âÌ8ÈÂğØù-
+Dsquid:S11704"!Make this final field static too.(ØĞ¡ûÿÿÿÿ8ÕÏüö-
 Dsquid:S11707"!Make this final field static too.(·‰µšùÿÿÿÿ8©ğÎò-
-Dsquid:S1170;"!Make this final field static too.(–İó°şÿÿÿÿ8ÈÂğØù-
 zsquid:S00116("cRename this field "MTA_SUBWAY_FEED_BASE_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚ÌûW
-qsquid:S001166"RRename this field "BOROUGH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°•˜Ÿ8©ğÎò-
-?squid:S11705"!Make this final field static too.(¥æ®ö8ÕÏüö-
+wsquid:S001168"XRename this field "GTFS_LATITUDE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£«×Â8Üó’Îò-
+squid:S00116;"]Rename this field "SUBWAY_STATION_KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–İó°şÿÿÿÿ8ÈÂğØù-
+\"squid:SwitchLastCaseIsDefaultCheckF""Add a default case to this switch.(ƒ’¼œûÿÿÿÿ8ÈÂğØù-
+isquid:S1301h"KReplace this "switch" statement by "if" statements to increase readability.(Ì‹âÌ8ÈÂğØù-
+Gsquid:S1148¶"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÈÂğØù-
+„squid:S00116."`Rename this field "MTA_SUBWAY_STATUS_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³Ù‰öúÿÿÿÿ8ÈÂğØù-
+?squid:S11706"!Make this final field static too.(°•˜Ÿ8‹ñ­Íò-
+squid:S001161"bRename this field "MTA_SUBWAY_FEED_API_KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì¥èÇ8ÈÂğØù-
+Dsquid:S1170;"!Make this final field static too.(–İó°şÿÿÿÿ8ÈÂğØù-
+}squid:S001167"YRename this field "DAYTIME_ROUTES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·‰µšùÿÿÿÿ8š™‘Îò-
 \
 squid:S106£"9Replace this use of System.out or System.err by a logger.(òÔáüÿÿÿÿ8ÈÂğØù-
-Dsquid:S11704"!Make this final field static too.(ØĞ¡ûÿÿÿÿ8ÕÏüö-
-W"squid:SwitchLastCaseIsDefaultCheckh""Add a default case to this switch.(Ì‹âÌ8ÈÂğØù-
-wsquid:S001168"XRename this field "GTFS_LATITUDE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£«×Â8Üó’Îò-
-\"squid:SwitchLastCaseIsDefaultCheckF""Add a default case to this switch.(ƒ’¼œûÿÿÿÿ8ÈÂğØù-
->squid:S11703"!Make this final field static too.(ø­{8ÕÏüö-
-?squid:S11706"!Make this final field static too.(°•˜Ÿ8‹ñ­Íò-
-Dsquid:S11709"!Make this final field static too.(Ú¯ç±ûÿÿÿÿ8ÈÂğØù-
-„squid:S00116."`Rename this field "MTA_SUBWAY_STATUS_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³Ù‰öúÿÿÿÿ8ÈÂğØù-
-squid:S00116;"]Rename this field "SUBWAY_STATION_KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–İó°şÿÿÿÿ8ÈÂğØù-
-?squid:S11708"!Make this final field static too.(£«×Â8©ğÎò-
-isquid:S1301h"KReplace this "switch" statement by "if" statements to increase readability.(Ì‹âÌ8ÈÂğØù-
+ssquid:S001163"URename this field "STATION_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø­{8‹ñ­Íò-
 }squid:S001169"YRename this field "GTFS_LONGITUDE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú¯ç±ûÿÿÿÿ8ÈÂğØù-
+qsquid:S001166"RRename this field "BOROUGH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°•˜Ÿ8©ğÎò-
+Gsquid:S1148Á"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÈÂğØù-
 squid:S00116+"bRename this field "MTA_SUBWAY_STATIONS_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›‹èÛ8ÆäïØù-
+Dsquid:S11709"!Make this final field static too.(Ú¯ç±ûÿÿÿÿ8ÈÂğØù-
