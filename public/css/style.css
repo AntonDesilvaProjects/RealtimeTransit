@@ -4,10 +4,10 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 10px;
 }
-.stop-info { 
+.stop-info {
     display: flex;
     padding: 15;
-} 
+}
 .stop-name {
     flex: 1;
     margin: auto;
@@ -61,7 +61,7 @@
     justify-content: center;
     align-items: center;
     overflow-y: auto;
-   /* height: 100%*/  /*<<<*/
+    height: 100%  /*<<<*/
 }
 
 
@@ -85,7 +85,7 @@
     align-content: center;
     display: flex;
     flex-direction: column;
-    /*max-height: 90vh;*/ /*<<<*/
+    max-height: 90vh; /*<<<*/
 }
 
 .search-results-grid {
