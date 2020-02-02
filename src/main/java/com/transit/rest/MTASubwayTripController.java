@@ -14,6 +14,7 @@ import static com.transit.TransitConstants.LONG_MIN_VALUE_STRING;
 
 @RestController
 @RequestMapping("/transit/mta/subway/trips")
+@CrossOrigin(origins = "*")
 public class MTASubwayTripController {
 
     @Autowired
@@ -30,7 +31,6 @@ public class MTASubwayTripController {
     }
 
     @GetMapping("/list")
-    @CrossOrigin(origins = "*")
     public List<Trip> list(@RequestParam(value = "routes", required = false) List<String> routes,
                            @RequestParam(value = "tripIds", required = false) List<String> tripIds,
                            @RequestParam(value = "stopIds", required = false) List<String> stopIds,
